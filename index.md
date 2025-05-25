@@ -1,7 +1,8 @@
 ---
-title: Bienvenue
+layout: default
 ---
 
-# Mon Super Site
+# Mon super site
 
-Ceci est un paragraphe sur mon site.
+Bienvenue sur mon site.  
+Voici du contenu.
