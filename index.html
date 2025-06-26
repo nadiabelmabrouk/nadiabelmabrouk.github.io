@@ -1,111 +1,116 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Nadia Belmabrouk</title>
   <style>
     body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdf2f8;
+      color: #333;
       margin: 0;
       padding: 0;
-      font-family: "Segoe UI", sans-serif;
-      background-color: #fff0f5; /* rose clair */
-      color: #5c2a4d;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
     }
 
     header {
-      background-color: #fcd6e0; /* rose doux */
-      width: 100%;
-      padding: 30px 0;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 2.8em;
-      color: #a03e6f;
-    }
-
-    p.subtitle {
-      font-size: 1.2em;
-      color: #803458;
-      margin-top: 5px;
-    }
-
-    main {
-      max-width: 800px;
+      background-color: #f7c6d9;
+      color: #5a2a4d;
       padding: 40px 20px;
       text-align: center;
     }
 
-    .links {
-      margin-top: 20px;
+    nav {
+      background-color: #fbe4ec;
+      text-align: center;
+      padding: 10px 0;
     }
 
-    .links a {
-      display: inline-block;
-      margin: 10px 15px;
-      padding: 10px 20px;
-      background-color: #f9d2e7;
-      color: #5c2a4d;
+    nav a {
+      color: #b03e75;
       text-decoration: none;
-      border-radius: 20px;
-      transition: background-color 0.3s ease;
+      margin: 0 15px;
+      font-weight: bold;
     }
 
-    .links a:hover {
-      background-color: #f7bdd8;
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      color: #b03e75;
     }
 
     footer {
-      margin-top: auto;
-      padding: 15px;
-      background-color: #fcd6e0;
-      width: 100%;
       text-align: center;
+      padding: 20px;
+      background-color: #fce8f0;
+      color: #666;
       font-size: 0.9em;
-      color: #5c2a4d;
-    }
-
-    a {
-      color: #a03e6f;
-      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Nadia Belmabrouk</h1>
-    <p class="subtitle">Chercheuse en mathématiques appliquées</p>
-  </header>
 
-  <main>
-    
+<header>
+  <h1>Nadia Belmabrouk</h1>
+  <p>Applied Mathematics Researcher</p>
+</header>
 
-    <div class="links">
-      <a href="https://orcid.org/0009-0009-5499-7874" target="_blank">ORCID</a>
+<nav>
+  <a href="#about">About me</a>
+  <a href="#cv">CV</a>
+  <a href="#themes">Research</a>
+  <a href="#papers">Publications</a>
+  <a href="#talks">Talks</a>
+</nav>
 
-     <a href="https://www.researchgate.net/profile/Nadia-Belmabrouk" target="_blank">ResearchGate</a>
+<section id="about">
+  <h2>About me</h2>
+  <p>I am a researcher in applied mathematics, specializing in stochastic processes and biological modeling.</p>
+</section>
 
+<section id="cv">
+  <h2>CV</h2>
+  <p><a href="cv.pdf" target="_blank">Download my CV (PDF)</a></p>
+</section>
 
+<section id="themes">
+  <h2>Research themes</h2>
+  <ul>
+    <li>Stochastic Processes</li>
+    <li>Population Dynamics</li>
+    <li>Mathematical Biology</li>
+  </ul>
+</section>
 
+<section id="papers">
+  <h2>Published Papers</h2>
+  <ul>
+    <li>Title of Paper 1 – Journal Name, Year</li>
+    <li>Title of Paper 2 – Journal Name, Year</li>
+  </ul>
+</section>
 
+<section id="talks">
+  <h2>Talks</h2>
+  <ul>
+    <li>Conference X – Location, Date</li>
+    <li>Workshop Y – Institution, Date</li>
+  </ul>
+</section>
 
+<footer>
+  © 2025 Nadia Belmabrouk — <a href="mailto:nadia@example.com">Contact</a>
+</footer>
 
-    </div>
-
-    <p style="margin-top: 30px;">
-      Contactez-moi : 
-      <a href="mailto:nadia.belmabrouk@polytechnique.edu">nadia.belmabrouk@polytechnique.edu</a>
-    </p>
-  </main>
-
-  <footer>
-    © 2025 Nadia Belmabrouk
-  </footer>
 </body>
 </html>
