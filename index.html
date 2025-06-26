@@ -8,8 +8,8 @@
       margin: 0;
       padding: 0;
       font-family: "Segoe UI", sans-serif;
-      background-color: #f3e8ff; /* violet très clair */
-      color: #2d0036;
+      background-color: #fff7f0; /* fond orangé très clair */
+      color: #4d2e00;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -17,7 +17,7 @@
     }
 
     header {
-      background-color: #d9b3ff; /* violet clair doux */
+      background-color: #ffd8a8; /* orangé doux */
       width: 100%;
       padding: 25px 0;
       text-align: center;
@@ -27,12 +27,12 @@
     h1 {
       margin: 0;
       font-size: 2.5em;
-      color: #4b006e;
+      color: #b35b00;
     }
 
     p.subtitle {
       font-size: 1.2em;
-      color: #660080;
+      color: #804000;
       margin-top: 5px;
     }
 
@@ -42,23 +42,33 @@
       text-align: center;
     }
 
+    .links {
+      margin-top: 20px;
+    }
+
+    .links a {
+      display: inline-block;
+      margin: 10px 15px;
+      padding: 10px 20px;
+      background-color: #ffe0cc;
+      color: #804000;
+      text-decoration: none;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .links a:hover {
+      background-color: #ffc799;
+    }
+
     footer {
       margin-top: auto;
       padding: 15px;
-      background-color: #d9b3ff;
+      background-color: #ffd8a8;
       width: 100%;
       text-align: center;
       font-size: 0.9em;
-      color: #4b006e;
-    }
-
-    a {
-      color: #8000b3;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+      color: #4d2e00;
     }
   </style>
 </head>
@@ -70,7 +80,15 @@
 
   <main>
     <p>Bienvenue sur ma page personnelle.</p>
-    <p>Contactez-moi :
+
+    <div class="links">
+      <a href="https://orcid.org/0000-0000-0000-0000" target="_blank">ORCID</a>
+      <a href="https://scholar.google.com/citations?user=XXXXX" target="_blank">Google Scholar</a>
+      <a href="https://hal.archives-ouvertes.fr/NOM_HAL" target="_blank">HAL</a>
+    </div>
+
+    <p style="margin-top: 30px;">
+      Contactez-moi : 
       <a href="mailto:nadia.belmabrouk@example.com">nadia.belmabrouk@example.com</a>
     </p>
   </main>
