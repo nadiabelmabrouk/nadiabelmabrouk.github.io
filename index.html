@@ -4,19 +4,34 @@
 <head>
   <meta charset="UTF-8" />
   <title>Nadia Belmabrouk</title>
-   <style>
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background-image: url('mise-a-plat-de-marguerites-disposees-avec-espace-copie.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    color: #333;
-    margin: 0;
-    padding: 0;
-  }
-</style>
+  <style>
+    body {
+      position: relative;
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url('mise-a-plat-de-marguerites-disposees-avec-espace-copie.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      transform: scaleX(-1);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Exemple de contenu au-dessus */
+    main {
+      padding: 2rem;
+    }
+  </style>
 </head>
 <body>
 
