@@ -1,51 +1,131 @@
-body {
-  position: relative;
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding-left: 40px; /* décalage vers la droite */
-  overflow-x: hidden;
-  background: none;
-  color: #222; /* couleur texte foncée */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nadia Belmabrouk</title>
+  <style>
+    body {
+      position: relative;
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
 
-/* Image de fond inversée, en arrière-plan */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url('mise-a-plat-de-marguerites-disposees-avec-espace-copie.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  transform: scaleX(-1);
-  z-index: -1;
-  pointer-events: none;
-  filter: brightness(0.7); /* assombrit un peu l'image pour le contraste */
-}
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url('mise-a-plat-de-marguerites-disposees-avec-espace-copie.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      transform: scaleX(-1);
+      z-index: -1;
+      pointer-events: none;
+    }
 
-/* Tout le contenu au-dessus de l'image */
-body > * {
-  position: relative;
-  z-index: 1;
-}
+    /* Exemple de contenu au-dessus */
+    main {
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body>
 
-/* Sections, nav, header avec fond blanc semi-transparent */
-header, nav, section, footer {
-  background-color: rgba(255, 255, 255, 0.85); /* blanc translucide */
-  max-width: 900px;
-  margin: 1rem auto;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
+<header>
+  <h1>Nadia Belmabrouk</h1>
+  <p>Applied Mathematics Researcher</p>
+</header>
 
-nav a {
-  margin-right: 1rem;
-  text-decoration: none;
-  color: #0078D7;
-  font-weight: 600;
-}
+<nav>
+  <a href="#about">About me</a>
+  <a href="#cv">CV</a>
+  <a href="#themes">Research</a>
+  <a href="#papers">Publications</a>
+  <a href="#talks">Talks</a>
+  <a href="#posters">Posters</a>
+</nav>
 
-nav a:hover {
-  text-decoration: underline;
-}
+<section id="about">
+  <h2>About me</h2>
+  <p>I am a researcher in applied mathematics, specializing in stochastic processes and biological modeling.</p>
+</section>
+
+<section id="cv">
+  <h2>CV</h2>
+  <p><a href="cv.pdf" target="_blank">Download my CV (PDF)</a></p>
+</section>
+
+<section id="themes">
+  <h2>Research themes</h2>
+  <ul>
+    <li>Stochastic Processes</li>
+    <li>Population Dynamics</li>
+    <li>Mathematical Biology</li>
+  </ul>
+</section>
+
+<section id="papers">
+  <h2>Publications</h2>
+  <ul>
+    <li><span class="talk-title">[1]</span> <span class="talk-subtitle">"Measure pseudo almost periodic solution for a class of nonlinear delayed stochastic evolution equations driven by Brownian motion."</span><br>
+    Nadia Belmabrouk, Mondher Damak, Mohsen Miraoui. <em>Filomat</em>, 2021.</li>
+
+    <li><span class="talk-title">[2]</span> <span class="talk-subtitle">"Dirichlet eigenvalue problems of irreversible Langevin diffusion."</span><br>
+    Nadia Belmabrouk, Mondher Damak, Najib Yaakoubi. <em>Statistics & Probability Letters</em>, 2022.</li>
+
+    <li><span class="talk-title">[3]</span> <span class="talk-subtitle">"Stochastic Nicholson’s blowflies model with delays."</span><br>
+    Nadia Belmabrouk, Mondher Damak, Mohsen Miraoui. <em>International Journal of Biomathematics</em>, 2023.</li>
+  </ul>
+</section>
+
+<section id="talks">
+  <h2>Talks</h2>
+  <ul>
+    <li><span class="talk-title">École de recherche de la Chaire MMB, Aussois, 17 June 2025.</span><br>
+      <span class="talk-subtitle">Invasion Dynamics in the Quasi-Critical Regime.</span></li>
+
+    <li><span class="talk-title">Séminaire de l’équipe MERGE, CMAP (École polytechnique), 10 April 2025.</span><br>
+      <span class="talk-subtitle">Invasion Dynamics in the Quasi-Critical Regime.</span></li>
+
+    <li><span class="talk-title">Colloque de la Société Mathématique de Tunisie, Monastir, 25–28 April 2024.</span><br>
+      <span class="talk-subtitle">Asymptotics of Multivariate Hawkes Process with Long-Range Connectivity.</span></li>
+
+    <li><span class="talk-title">Séminaire SAMM, Université Paris 1, 17 November 2023.</span><br>
+      <span class="talk-subtitle">Asymptotics of Multivariate Hawkes Processes with Long-Range Interactions.</span></li>
+
+    <li><span class="talk-title">Séminaire des doctorants, 14 March 2023.</span><br>
+      <span class="talk-subtitle">Asymptotics of Multivariate Hawkes Processes with Long-Range Excitations.</span></li>
+
+    <li><span class="talk-title">Colloque de la Société Mathématique de Tunisie, 2 November 2019.</span><br>
+      <span class="talk-subtitle">Stochastic Nicholson’s Blowflies Model with Delays.</span></li>
+
+    <li><span class="talk-title">Stochastic Models in Life Science, Eurandom, 4–6 August 2023.</span><br>
+      <span class="talk-subtitle">Neural Multivariate Hawkes Process with Long-Range Interactions.</span></li>
+
+    <li><span class="talk-title">Journées ALEA, CIRM, Luminy, 21–25 June 2022.</span><br>
+      <span class="talk-subtitle">Processus de Hawkes sur un Réseau à Longues Portées.</span></li>
+
+    <li><span class="talk-title">Journées Processus de Hawkes, Institut Henri Poincaré, 5 June 2022.</span><br>
+      <span class="talk-subtitle">Hawkes Process with Long-Range Connectivity.</span></li>
+
+    <li><span class="talk-title">International Conference on Mathematical Neuroscience (online), 28 June – 1 July 2021.</span><br>
+      <span class="talk-subtitle">Multivariate Hawkes Process with Long-Range Dependencies.</span></li>
+  </ul>
+</section>
+
+<section id="posters">
+  <h2>Posters</h2>
+  <ul>
+    <li><span class="talk-title">Journées Math Bio Santé, Nantes, 26–28 June 2024.</span></li>
+  </ul>
+</section>
+
+<footer>
+  © 2025 Nadia Belmabrouk — <a href="mailto:nadia@example.com">Contact</a>
+</footer>
+
+</body>
+</html>
