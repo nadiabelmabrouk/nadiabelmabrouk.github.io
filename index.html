@@ -1,157 +1,51 @@
-<style>
-  /* RESET BASIQUE */
-  * {
-    box-sizing: border-box;
-  }
+body {
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding-left: 40px; /* décalage vers la droite */
+  overflow-x: hidden;
+  background: none;
+  color: #222; /* couleur texte foncée */
+}
 
-  body {
-    position: relative;
-    font-family: 'Segoe UI', sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+/* Image de fond inversée, en arrière-plan */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('mise-a-plat-de-marguerites-disposees-avec-espace-copie.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: scaleX(-1);
+  z-index: -1;
+  pointer-events: none;
+  filter: brightness(0.7); /* assombrit un peu l'image pour le contraste */
+}
 
-    /* Décalage vers la droite */
-    padding-left: 40px;
+/* Tout le contenu au-dessus de l'image */
+body > * {
+  position: relative;
+  z-index: 1;
+}
 
-    background: none; /* On enlève le background du body pour le pseudo-élément */
-  }
+/* Sections, nav, header avec fond blanc semi-transparent */
+header, nav, section, footer {
+  background-color: rgba(255, 255, 255, 0.85); /* blanc translucide */
+  max-width: 900px;
+  margin: 1rem auto;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image: url('mise-a-plat-de-marguerites-disposees-avec-espace-copie.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    transform: scaleX(-1);
-    z-index: -1;
-    pointer-events: none;
-    filter: brightness(0.85); /* Optionnel : assombrit un peu le fond */
-  }
+nav a {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #0078D7;
+  font-weight: 600;
+}
 
-  header {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 1rem 2rem;
-    border-bottom: 2px solid #ccc;
-    margin-bottom: 1.5rem;
-    max-width: 900px;
-  }
-
-  header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    color: #222;
-  }
-
-  header p {
-    margin: 0.3rem 0 0;
-    font-style: italic;
-    color: #555;
-  }
-
-  nav {
-    max-width: 900px;
-    margin-bottom: 2rem;
-    padding: 0 2rem;
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-
-  nav a {
-    text-decoration: none;
-    color: #333;
-    margin-right: 1.5rem;
-    font-weight: 600;
-    font-size: 1rem;
-    padding: 0.5rem 0;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.3s ease, color 0.3s ease;
-  }
-
-  nav a:hover, nav a:focus {
-    border-color: #0078D7;
-    color: #0078D7;
-  }
-
-  main, section {
-    max-width: 900px;
-    background-color: rgba(255, 255, 255, 0.85);
-    margin: 0 auto 2rem;
-    padding: 1.5rem 2rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-
-  section h2 {
-    border-bottom: 2px solid #0078D7;
-    padding-bottom: 0.3rem;
-    margin-top: 0;
-    color: #005a9e;
-  }
-
-  ul {
-    padding-left: 1.2rem;
-  }
-
-  li {
-    margin-bottom: 0.8rem;
-    line-height: 1.4;
-  }
-
-  .talk-title {
-    font-weight: 700;
-    color: #222;
-  }
-
-  .talk-subtitle {
-    font-style: italic;
-    color: #555;
-  }
-
-  footer {
-    text-align: center;
-    padding: 1rem 2rem;
-    font-size: 0.9rem;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-top: 1px solid #ccc;
-    max-width: 900px;
-    margin: 0 auto 2rem;
-    border-radius: 8px;
-  }
-
-  footer a {
-    color: #0078D7;
-    text-decoration: none;
-  }
-
-  footer a:hover {
-    text-decoration: underline;
-  }
-
-  /* Responsive simple */
-  @media (max-width: 600px) {
-    body {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-
-    nav a {
-      display: block;
-      margin: 0.3rem 0;
-    }
-
-    header, nav, main, section, footer {
-      padding-left: 1rem;
-      padding-right: 1rem;
-      max-width: 100%;
-      margin: 1rem auto;
-      border-radius: 0;
-      box-shadow: none;
-      background-color: rgba(255,255,255,0.95);
-    }
-  }
-</style>
+nav a:hover {
+  text-decoration: underline;
+}
