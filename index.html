@@ -4,6 +4,69 @@
   <meta charset="UTF-8" />
   <title>Nadia Belmabrouk</title>
   <style>
+
+<!-- Sélecteur de langue -->
+<div style="position: fixed; top: 10px; right: 10px;">
+  <button onclick="setLanguage('en')">English</button>
+  <button onclick="setLanguage('fr')">Français</button>
+</div>
+
+<script>
+  const translations = {
+    fr: {
+      title: "Nadia Belmabrouk",
+      subtitle: "Chercheuse en mathématiques appliquées",
+      aboutTitle: "À propos de moi",
+      aboutText: "Je suis chercheuse en mathématiques appliquées, spécialisée en processus stochastiques et modélisation biologique.",
+      cv: "Télécharger mon CV (PDF)",
+      researchTitle: "Thèmes de recherche",
+      researchItems: ["Processus stochastiques", "Dynamique des populations", "Biologie mathématique"],
+      publicationsTitle: "Publications",
+      talksTitle: "Conférences",
+      postersTitle: "Posters",
+      contact: "Contact"
+    },
+    en: {
+      title: "Nadia Belmabrouk",
+      subtitle: "Applied Mathematics Researcher",
+      aboutTitle: "About me",
+      aboutText: "I am a researcher in applied mathematics, specializing in stochastic processes and biological modeling.",
+      cv: "Download my CV (PDF)",
+      researchTitle: "Research themes",
+      researchItems: ["Stochastic Processes", "Population Dynamics", "Mathematical Biology"],
+      publicationsTitle: "Publications",
+      talksTitle: "Talks",
+      postersTitle: "Posters",
+      contact: "Contact"
+    }
+  };
+
+  function setLanguage(lang) {
+    const t = translations[lang];
+    document.querySelector("h1").textContent = t.title;
+    document.querySelector("header p").textContent = t.subtitle;
+    document.querySelector("#about h2").textContent = t.aboutTitle;
+    document.querySelector("#about p").textContent = t.aboutText;
+    document.querySelector("#cv h2").textContent = "CV";
+    document.querySelector("#cv a").textContent = t.cv;
+    document.querySelector("#themes h2").textContent = t.researchTitle;
+
+    // Remplacer la liste de thèmes de recherche
+    const ul = document.querySelector("#themes ul");
+    ul.innerHTML = "";
+    t.researchItems.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      ul.appendChild(li);
+    });
+
+    document.querySelector("#papers h2").textContent = t.publicationsTitle;
+    document.querySelector("#talks h2").textContent = t.talksTitle;
+    document.querySelector("#posters h2").textContent = t.postersTitle;
+    document.querySelector("footer").innerHTML = `© 2025 Nadia Belmabrouk — <a href="mailto:nadia@example.com">${t.contact}</a>`;
+  }
+</script>
+
     body {
       position: relative;
       font-family: 'Segoe UI', sans-serif;
