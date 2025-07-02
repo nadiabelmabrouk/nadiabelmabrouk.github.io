@@ -194,8 +194,8 @@
 </section>
 
 
-<section id="posters">
-  <h2>Posters</h2>
+<section id="poster">
+  <h2>Poster</h2>
   <ul>
     <li><span class="talk-title">Journées Math Bio Santé, 2024.</span></li>
   </ul>
@@ -228,7 +228,7 @@ const translations = {
     ],
     publicationsTitle: "Publications",
     talksTitle: "Conférences",
-    postersTitle: "Posters",
+    posterTitle: "Poster",
     contact: "Contact"
   },
   en: {
@@ -252,7 +252,7 @@ const translations = {
     ],
     publicationsTitle: "Publications",
     talksTitle: "Talks",
-    postersTitle: "Posters",
+    posterTitle: "Poster",
     contact: "Contact"
   }
 };
@@ -288,7 +288,7 @@ function setLanguage(lang) {
 
   document.querySelector("#papers h2").textContent = t.publicationsTitle;
   document.querySelector("#talks h2").textContent = t.talksTitle;
-  document.querySelector("#posters h2").textContent = t.postersTitle;
+  document.querySelector("#poster h2").textContent = t.posterTitle;
   document.querySelector("footer").innerHTML = `© 2025 Nadia Belmabrouk — <a href="mailto:nadia.belmabrouk@polytechnique.edu">${t.contact}</a>`;
 
   // Met à jour aussi les talks
