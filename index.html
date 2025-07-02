@@ -254,17 +254,7 @@
     document.querySelector("#posters h2").textContent = t.postersTitle;
     document.querySelector("footer").innerHTML = `© 2025 Nadia Belmabrouk — <a href="mailto:nadia@example.com">${t.contact}</a>`;
   }
-    // Traduction des Talks
-  document.querySelector("#talks h2").textContent = lang === "fr" ? "Conférences" : "Talks";
-  document.querySelectorAll("#talks .talk-title").forEach(el => {
-    el.textContent = el.dataset[lang];
-  });
-  document.querySelectorAll("#talks .talk-subtitle").forEach(el => {
-    el.textContent = el.dataset[lang];
-  });
-
-</script>
-<script>
+    <script>
 function setTalksLanguage(lang) {
   const items = document.querySelectorAll('.talk-item');
   items.forEach(item => {
@@ -273,17 +263,16 @@ function setTalksLanguage(lang) {
     item.innerHTML = `<span class="talk-title">${title}</span><br><span class="talk-subtitle">${subtitle}</span>`;
   });
 
-  // Met à jour le titre de section
   const h2 = document.querySelector('#talks h2');
   h2.textContent = lang === 'fr' ? 'Conférences' : 'Talks';
 }
 
-// Détection automatique ou bouton langue ?
 document.addEventListener('DOMContentLoaded', () => {
   const userLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
   setTalksLanguage(userLang);
 });
 </script>
+
 
 </body>
 </html>
