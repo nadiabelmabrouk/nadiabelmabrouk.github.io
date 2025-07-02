@@ -265,8 +265,20 @@ function setLanguage(lang) {
   document.querySelector("#papers h2").textContent = t.publicationsTitle;
   document.querySelector("#talks h2").textContent = t.talksTitle;
   document.querySelector("#posters h2").textContent = t.postersTitle;
-  document.querySelector("footer").innerHTML = `© 2025 Nadia Belmabrouk — <a href="mailto:nadia@example.com">${t.contact}</a>`;
-}
+  document.querySelector("footer").innerHTML = `© 2025 Nadia Belmabrouk — <a href="mailto:nadia.belmabrouk@polytechnique.edu">${t.contact}</a>`;
+    // Met à jour aussi les talks
+    setTalksLanguage(lang);
+  }
+
+  function setTalksLanguage(lang) {
+    const items = document.querySelectorAll('.talk-item');
+    items.forEach(item => {
+      const title = item.dataset[lang + 'Title'];
+const subtitle = item.dataset[lang + 'Subtitle'];
+
+      item.innerHTML = <span class="talk-title">${title}</span><br><span class="talk-subtitle">${subtitle}</span>;
+    });
+   }
 </script>
 </body>
 </html>
