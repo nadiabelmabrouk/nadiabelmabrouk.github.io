@@ -182,6 +182,13 @@
     <li class="talk-item" data-en-title="ICMN (online), June 28 – July 1, 2021." data-en-subtitle="Multivariate Hawkes Process with Long-Range Dependencies." data-fr-title="ICMN (en ligne), 28 juin – 1 juillet 2021." data-fr-subtitle="Processus de Hawkes multivariés à dépendances longues."></li>
   </ul>
 </section>
+// Traduction de la section "Talks"
+document.querySelector("#talks h2").textContent = lang === "fr" ? "Conférences" : "Talks";
+document.querySelectorAll(".talk-item").forEach(item => {
+  const title = item.getAttribute(`data-${lang}-title`);
+  const subtitle = item.getAttribute(`data-${lang}-subtitle`);
+  item.innerHTML = `<span class="talk-title">${title}</span><br><span class="talk-subtitle">${subtitle}</span>`;
+});
 
 
 
