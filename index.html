@@ -159,12 +159,49 @@
 </section>
 
 <section id="talks">
-  <h2>Talks</h2>
-  <ul>
-    <li><span class="talk-title">École de recherche, Aussois, 2025.</span><br>
-    <span class="talk-subtitle">Invasion Dynamics...</span></li>
+  <h2>Talks / Conférences</h2>
+  <ul id="talks-list">
+    <li data-fr='<span class="talk-title">École de recherche de la Chaire MMB, Aussois, 17 juin 2025.</span><br><span class="talk-subtitle">Dynamique d’invasion dans le régime quasi-critique.</span>'
+        data-en='<span class="talk-title">MMB Research School, Aussois, June 17, 2025.</span><br><span class="talk-subtitle">Invasion Dynamics in the Quasi-Critical Regime.</span>'></li>
+
+    <li data-fr='<span class="talk-title">Séminaire MERGE, CMAP (École polytechnique), 10 avril 2025.</span><br><span class="talk-subtitle">Dynamique d’invasion dans le régime quasi-critique.</span>'
+        data-en='<span class="talk-title">MERGE Seminar, CMAP (École polytechnique), April 10, 2025.</span><br><span class="talk-subtitle">Invasion Dynamics in the Quasi-Critical Regime.</span>'></li>
+
+    <li data-fr='<span class="talk-title">Colloque de la Société Mathématique de Tunisie, Monastir, 25–28 avril 2024.</span><br><span class="talk-subtitle">Asymptotiques des processus de Hawkes multivariés à connexions longues.</span>'
+        data-en='<span class="talk-title">Mathematical Society of Tunisia Conference, Monastir, April 25–28, 2024.</span><br><span class="talk-subtitle">Asymptotics of Multivariate Hawkes Process with Long-Range Connectivity.</span>'></li>
+
+    <li data-fr='<span class="talk-title">Séminaire SAMM, Université Paris 1, 17 novembre 2023.</span><br><span class="talk-subtitle">Asymptotiques des processus de Hawkes multivariés avec interactions à longue portée.</span>'
+        data-en='<span class="talk-title">SAMM Seminar, Université Paris 1, November 17, 2023.</span><br><span class="talk-subtitle">Asymptotics of Multivariate Hawkes Processes with Long-Range Interactions.</span>'></li>
+
+    <li data-fr='<span class="talk-title">Séminaire des doctorants, 14 mars 2023.</span><br><span class="talk-subtitle">Asymptotiques des processus de Hawkes multivariés à longues excitations.</span>'
+        data-en='<span class="talk-title">PhD Student Seminar, March 14, 2023.</span><br><span class="talk-subtitle">Asymptotics of Multivariate Hawkes Processes with Long-Range Excitations.</span>'></li>
+
+    <li data-fr='<span class="talk-title">Colloque SMT, 2 novembre 2019.</span><br><span class="talk-subtitle">Modèle stochastique de Nicholson avec délais.</span>'
+        data-en='<span class="talk-title">SMT Conference, November 2, 2019.</span><br><span class="talk-subtitle">Stochastic Nicholson’s Blowflies Model with Delays.</span>'></li>
+
+    <li data-fr='<span class="talk-title">Stochastic Models in Life Science, Eurandom, 4–6 août 2023.</span><br><span class="talk-subtitle">Processus de Hawkes multivarié neuronal avec interactions longues.</span>'
+        data-en='<span class="talk-title">Stochastic Models in Life Science, Eurandom, August 4–6, 2023.</span><br><span class="talk-subtitle">Neural Multivariate Hawkes Process with Long-Range Interactions.</span>'></li>
+
+    <li data-fr='<span class="talk-title">Journées ALEA, CIRM, Luminy, 21–25 juin 2022.</span><br><span class="talk-subtitle">Processus de Hawkes sur réseau à longues portées.</span>'
+        data-en='<span class="talk-title">ALEA Days, CIRM, Luminy, June 21–25, 2022.</span><br><span class="talk-subtitle">Hawkes Process on a Long-Range Network.</span>'></li>
+
+    <li data-fr='<span class="talk-title">Journées Processus de Hawkes, IHP, 5 juin 2022.</span><br><span class="talk-subtitle">Processus de Hawkes à connexions longues.</span>'
+        data-en='<span class="talk-title">Hawkes Process Days, IHP, June 5, 2022.</span><br><span class="talk-subtitle">Hawkes Process with Long-Range Connectivity.</span>'></li>
+
+    <li data-fr='<span class="talk-title">ICMN (en ligne), 28 juin – 1 juillet 2021.</span><br><span class="talk-subtitle">Processus de Hawkes multivariés à dépendances longues.</span>'
+        data-en='<span class="talk-title">ICMN (online), June 28 – July 1, 2021.</span><br><span class="talk-subtitle">Multivariate Hawkes Process with Long-Range Dependencies.</span>'></li>
   </ul>
 </section>
+
+<script>
+  function setLanguage(lang) {
+    const items = document.querySelectorAll('#talks-list li');
+    items.forEach(li => {
+      li.innerHTML = li.getAttribute('data-' + lang);
+    });
+  }
+</script>
+
 
 <section id="posters">
   <h2>Posters</h2>
