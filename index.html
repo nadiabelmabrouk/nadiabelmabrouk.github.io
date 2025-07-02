@@ -245,6 +245,17 @@ const translations = {
   }
 };
 
+// Fonction pour mettre à jour les conférences
+function updateTalksLanguage(lang) {
+  const talkItems = document.querySelectorAll(".talk-item");
+  talkItems.forEach(item => {
+    const title = item.getAttribute(`data-${lang}-title`);
+    const subtitle = item.getAttribute(`data-${lang}-subtitle`);
+    item.innerHTML = `<strong>${title}</strong><br><em>${subtitle}</em>`;
+  });
+}
+
+// Fonction principale pour changer toute la langue
 function setLanguage(lang) {
   const t = translations[lang];
   document.querySelector("h1").textContent = t.title;
@@ -266,21 +277,16 @@ function setLanguage(lang) {
   document.querySelector("#talks h2").textContent = t.talksTitle;
   document.querySelector("#posters h2").textContent = t.postersTitle;
   document.querySelector("footer").innerHTML = `© 2025 Nadia Belmabrouk — <a href="mailto:nadia.belmabrouk@polytechnique.edu">${t.contact}</a>`;
-    / Fonction pour changer la langue ("en" ou "fr")
-  function updateTalksLanguage(lang) {
-    const talkItems = document.querySelectorAll(".talk-item");
 
-    talkItems.forEach(item => {
-      const title = item.getAttribute(`data-${lang}-title`);
-      const subtitle = item.getAttribute(`data-${lang}-subtitle`);
+  // Met à jour aussi les talks
+  updateTalksLanguage(lang);
+}
 
-      item.innerHTML = `<strong>${title}</strong><br><em>${subtitle}</em>`;
-    });
-  }
-
-  // Appelle la fonction avec la langue désirée
-  // Par exemple : "en" ou "fr"
-  updateTalksLanguage("en"); // ou "fr"
+// Appel initial en anglais
+document.addEventListener("DOMContentLoaded", () => {
+  setLanguage("en"); // Ou "fr" pour démarrer en français
+});
 </script>
+
 </body>
 </html>
