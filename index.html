@@ -4,91 +4,100 @@
   <meta charset="UTF-8" />
   <title>Nadia Belmabrouk</title>
   <style>
-
-<!-- Sélecteur de langue -->
-<div style="position: fixed; top: 10px; right: 10px;">
-  <button onclick="setLanguage('en')">English</button>
-  <button onclick="setLanguage('fr')">Français</button>
-</div>
-
-<script>
-  const translations = {
-    fr: {
-      title: "Nadia Belmabrouk",
-      subtitle: "Chercheuse en mathématiques appliquées",
-      aboutTitle: "À propos de moi",
-      aboutText: "Je suis chercheuse en mathématiques appliquées, spécialisée en processus stochastiques et modélisation biologique.",
-      cv: "Télécharger mon CV (PDF)",
-      researchTitle: "Thèmes de recherche",
-      researchItems: ["Processus stochastiques", "Dynamique des populations", "Biologie mathématique"],
-      publicationsTitle: "Publications",
-      talksTitle: "Conférences",
-      postersTitle: "Posters",
-      contact: "Contact"
-    },
-    en: {
-      title: "Nadia Belmabrouk",
-      subtitle: "Applied Mathematics Researcher",
-      aboutTitle: "About me",
-      aboutText: "I am a researcher in applied mathematics, specializing in stochastic processes and biological modeling.",
-      cv: "Download my CV (PDF)",
-      researchTitle: "Research themes",
-      researchItems: ["Stochastic Processes", "Population Dynamics", "Mathematical Biology"],
-      publicationsTitle: "Publications",
-      talksTitle: "Talks",
-      postersTitle: "Posters",
-      contact: "Contact"
-    }
-  };
-
-  function setLanguage(lang) {
-    const t = translations[lang];
-    document.querySelector("h1").textContent = t.title;
-    document.querySelector("header p").textContent = t.subtitle;
-    document.querySelector("#about h2").textContent = t.aboutTitle;
-    document.querySelector("#about p").textContent = t.aboutText;
-    document.querySelector("#cv h2").textContent = "CV";
-    document.querySelector("#cv a").textContent = t.cv;
-    document.querySelector("#themes h2").textContent = t.researchTitle;
-
-    // Remplacer la liste de thèmes de recherche
-    const ul = document.querySelector("#themes ul");
-    ul.innerHTML = "";
-    t.researchItems.forEach(item => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      ul.appendChild(li);
-    });
-
-    document.querySelector("#papers h2").textContent = t.publicationsTitle;
-    document.querySelector("#talks h2").textContent = t.talksTitle;
-    document.querySelector("#posters h2").textContent = t.postersTitle;
-    document.querySelector("footer").innerHTML = `© 2025 Nadia Belmabrouk — <a href="mailto:nadia@example.com">${t.contact}</a>`;
-  }
-</script>
-
-    <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <title>Page avec fond bleu</title>
-  <style>
     body {
-      background-color: #87CEEB; /* bleu ciel */
+      background: linear-gradient(to bottom right, #ff69b4, #ffffff); /* rose fuchsia vers blanc */
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      color: white;
+      color: #333;
+    }
+
+    header {
+      background-color: rgba(255, 255, 255, 0.85);
+      color: #c2185b;
+      padding: 40px 20px;
       text-align: center;
+    }
+
+    nav {
+      background-color: rgba(255, 240, 245, 0.85);
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: #c2185b;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #c2185b;
+      border-bottom: 2px solid #f8bbd0;
+      padding-bottom: 5px;
+    }
+
+    .talk-title {
+      font-weight: bold;
+    }
+
+    .talk-subtitle {
+      font-style: italic;
+      color: #ad1457;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(255, 240, 245, 0.85);
+      color: #666;
+      font-size: 0.9em;
+    }
+
+    /* Sélecteur de langue */
+    #lang-selector {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+    }
+
+    #lang-selector button {
+      margin-left: 5px;
+      padding: 5px 10px;
+      background-color: #f06292;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #lang-selector button:hover {
+      background-color: #d81b60;
     }
   </style>
 </head>
 <body>
-  <h1>Bienvenue sur ma page</h1>
-  <p>Voici une page avec un fond bleu !</p>
-</body>
-</html>
 
+<!-- Sélecteur de langue -->
+<div id="lang-selector">
+  <button onclick="setLanguage('en')">English</button>
+  <button onclick="setLanguage('fr')">Français</button>
+</div>
 
 <header>
   <h1>Nadia Belmabrouk</h1>
@@ -126,62 +135,84 @@
 <section id="papers">
   <h2>Publications</h2>
   <ul>
-    <li><span class="talk-title">[1]</span> <span class="talk-subtitle">"Measure pseudo almost periodic solution for a class of nonlinear delayed stochastic evolution equations driven by Brownian motion."</span><br>
-    Nadia Belmabrouk, Mondher Damak, Mohsen Miraoui. <em>Filomat</em>, 2021.</li>
-
-    <li><span class="talk-title">[2]</span> <span class="talk-subtitle">"Dirichlet eigenvalue problems of irreversible Langevin diffusion."</span><br>
-    Nadia Belmabrouk, Mondher Damak, Najib Yaakoubi. <em>Statistics & Probability Letters</em>, 2022.</li>
-
-    <li><span class="talk-title">[3]</span> <span class="talk-subtitle">"Stochastic Nicholson’s blowflies model with delays."</span><br>
-    Nadia Belmabrouk, Mondher Damak, Mohsen Miraoui. <em>International Journal of Biomathematics</em>, 2023.</li>
+    <li><span class="talk-title">[1]</span> <span class="talk-subtitle">"Measure pseudo almost periodic solution..."</span><br>
+    Nadia Belmabrouk, et al., <em>Filomat</em>, 2021.</li>
+    <!-- Ajoute les autres publications ici -->
   </ul>
 </section>
 
 <section id="talks">
   <h2>Talks</h2>
   <ul>
-    <li><span class="talk-title">École de recherche de la Chaire MMB, Aussois, 17 June 2025.</span><br>
-      <span class="talk-subtitle">Invasion Dynamics in the Quasi-Critical Regime.</span></li>
-
-    <li><span class="talk-title">Séminaire de l’équipe MERGE, CMAP (École polytechnique), 10 April 2025.</span><br>
-      <span class="talk-subtitle">Invasion Dynamics in the Quasi-Critical Regime.</span></li>
-
-    <li><span class="talk-title">Colloque de la Société Mathématique de Tunisie, Monastir, 25–28 April 2024.</span><br>
-      <span class="talk-subtitle">Asymptotics of Multivariate Hawkes Process with Long-Range Connectivity.</span></li>
-
-    <li><span class="talk-title">Séminaire SAMM, Université Paris 1, 17 November 2023.</span><br>
-      <span class="talk-subtitle">Asymptotics of Multivariate Hawkes Processes with Long-Range Interactions.</span></li>
-
-    <li><span class="talk-title">Séminaire des doctorants, 14 March 2023.</span><br>
-      <span class="talk-subtitle">Asymptotics of Multivariate Hawkes Processes with Long-Range Excitations.</span></li>
-
-    <li><span class="talk-title">Colloque de la Société Mathématique de Tunisie, 2 November 2019.</span><br>
-      <span class="talk-subtitle">Stochastic Nicholson’s Blowflies Model with Delays.</span></li>
-
-    <li><span class="talk-title">Stochastic Models in Life Science, Eurandom, 4–6 August 2023.</span><br>
-      <span class="talk-subtitle">Neural Multivariate Hawkes Process with Long-Range Interactions.</span></li>
-
-    <li><span class="talk-title">Journées ALEA, CIRM, Luminy, 21–25 June 2022.</span><br>
-      <span class="talk-subtitle">Processus de Hawkes sur un Réseau à Longues Portées.</span></li>
-
-    <li><span class="talk-title">Journées Processus de Hawkes, Institut Henri Poincaré, 5 June 2022.</span><br>
-      <span class="talk-subtitle">Hawkes Process with Long-Range Connectivity.</span></li>
-
-    <li><span class="talk-title">International Conference on Mathematical Neuroscience (online), 28 June – 1 July 2021.</span><br>
-      <span class="talk-subtitle">Multivariate Hawkes Process with Long-Range Dependencies.</span></li>
+    <li><span class="talk-title">École de recherche, Aussois, 2025.</span><br>
+    <span class="talk-subtitle">Invasion Dynamics...</span></li>
   </ul>
 </section>
 
 <section id="posters">
   <h2>Posters</h2>
   <ul>
-    <li><span class="talk-title">Journées Math Bio Santé, Nantes, 26–28 June 2024.</span></li>
+    <li><span class="talk-title">Journées Math Bio Santé, 2024.</span></li>
   </ul>
 </section>
 
 <footer>
   © 2025 Nadia Belmabrouk — <a href="mailto:nadia@example.com">Contact</a>
 </footer>
+
+<script>
+  const translations = {
+    fr: {
+      title: "Nadia Belmabrouk",
+      subtitle: "Chercheuse en mathématiques appliquées",
+      aboutTitle: "À propos de moi",
+      aboutText: "Je suis chercheuse en mathématiques appliquées, spécialisée en processus stochastiques et modélisation biologique.",
+      cv: "Télécharger mon CV (PDF)",
+      researchTitle: "Thèmes de recherche",
+      researchItems: ["Processus stochastiques", "Dynamique des populations", "Biologie mathématique"],
+      publicationsTitle: "Publications",
+      talksTitle: "Conférences",
+      postersTitle: "Posters",
+      contact: "Contact"
+    },
+    en: {
+      title: "Nadia Belmabrouk",
+      subtitle: "Applied Mathematics Researcher",
+      aboutTitle: "About me",
+      aboutText: "I am a researcher in applied mathematics, specializing in stochastic processes and biological modeling.",
+      cv: "Download my CV (PDF)",
+      researchTitle: "Research themes",
+      researchItems: ["Stochastic Processes", "Population Dynamics", "Mathematical Biology"],
+      publicationsTitle: "Publications",
+      talksTitle: "Talks",
+      postersTitle: "Posters",
+      contact: "Contact"
+    }
+  };
+
+  function setLanguage(lang) {
+    const t = translations[lang];
+    document.querySelector("h1").textContent = t.title;
+    document.querySelector("header p").textContent = t.subtitle;
+    document.querySelector("#about h2").textContent = t.aboutTitle;
+    document.querySelector("#about p").textContent = t.aboutText;
+    document.querySelector("#cv a").textContent = t.cv;
+    document.querySelector("#themes h2").textContent = t.researchTitle;
+
+    const ul = document.querySelector("#themes ul");
+    ul.innerHTML = "";
+    t.researchItems.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      ul.appendChild(li);
+    });
+
+    document.querySelector("#papers h2").textContent = t.publicationsTitle;
+    document.querySelector("#talks h2").textContent = t.talksTitle;
+    document.querySelector("#posters h2").textContent = t.postersTitle;
+    document.querySelector("footer").innerHTML = `© 2025 Nadia Belmabrouk — <a href="mailto:nadia@example.com">${t.contact}</a>`;
+  }
+</script>
 
 </body>
 </html>
