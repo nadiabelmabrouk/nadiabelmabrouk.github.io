@@ -5,7 +5,7 @@
   <title>Nadia Belmabrouk</title>
   <style>
     body {
-      background: linear-gradient(to bottom right, #ff69b4, #ffffff); /* rose fuchsia vers blanc */
+      background: linear-gradient(to bottom right, #ff69b4, #ffffff);
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
@@ -68,7 +68,6 @@
       font-size: 0.9em;
     }
 
-    /* Sélecteur de langue */
     #lang-selector {
       position: fixed;
       top: 10px;
@@ -117,7 +116,7 @@
   <h2>About me</h2>
   <p>I am a researcher in applied mathematics</p>
   <p>
-     <a href="https://orcid.org/0009-0009-5499-7874" target="_blank" rel="noopener noreferrer">
+    <a href="https://orcid.org/0009-0009-5499-7874" target="_blank">
       <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD" style="vertical-align: middle;">
       ORCID: 0009-0009-5499-7874
     </a>
@@ -189,8 +188,6 @@
   </ul>
 </section>
 
-
-
 <section id="posters">
   <h2>Posters</h2>
   <ul>
@@ -202,6 +199,7 @@
   © 2025 Nadia Belmabrouk — <a href="mailto:nadia@example.com">Contact</a>
 </footer>
 
+<!-- SCRIPT FINAL -->
 <script>
   const translations = {
     fr: {
@@ -253,26 +251,26 @@
     document.querySelector("#talks h2").textContent = t.talksTitle;
     document.querySelector("#posters h2").textContent = t.postersTitle;
     document.querySelector("footer").innerHTML = `© 2025 Nadia Belmabrouk — <a href="mailto:nadia@example.com">${t.contact}</a>`;
+
+    // Met à jour aussi les talks
+    setTalksLanguage(lang);
   }
-    <script>
-function setTalksLanguage(lang) {
-  const items = document.querySelectorAll('.talk-item');
-  items.forEach(item => {
-    const title = item.dataset[`${lang}-title`];
-    const subtitle = item.dataset[`${lang}-subtitle`];
-    item.innerHTML = `<span class="talk-title">${title}</span><br><span class="talk-subtitle">${subtitle}</span>`;
+
+  function setTalksLanguage(lang) {
+    const items = document.querySelectorAll('.talk-item');
+    items.forEach(item => {
+      const title = item.dataset[`${lang}-title`];
+      const subtitle = item.dataset[`${lang}-subtitle`];
+      item.innerHTML = `<span class="talk-title">${title}</span><br><span class="talk-subtitle">${subtitle}</span>`;
+    });
+  }
+
+  // Auto langue au chargement
+  document.addEventListener('DOMContentLoaded', () => {
+    const userLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
+    setLanguage(userLang);
   });
-
-  const h2 = document.querySelector('#talks h2');
-  h2.textContent = lang === 'fr' ? 'Conférences' : 'Talks';
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const userLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
-  setTalksLanguage(userLang);
-});
 </script>
-
 
 </body>
 </html>
