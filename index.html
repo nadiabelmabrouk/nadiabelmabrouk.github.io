@@ -264,6 +264,26 @@
   });
 
 </script>
+<script>
+function setTalksLanguage(lang) {
+  const items = document.querySelectorAll('.talk-item');
+  items.forEach(item => {
+    const title = item.dataset[`${lang}-title`];
+    const subtitle = item.dataset[`${lang}-subtitle`];
+    item.innerHTML = `<span class="talk-title">${title}</span><br><span class="talk-subtitle">${subtitle}</span>`;
+  });
+
+  // Met à jour le titre de section
+  const h2 = document.querySelector('#talks h2');
+  h2.textContent = lang === 'fr' ? 'Conférences' : 'Talks';
+}
+
+// Détection automatique ou bouton langue ?
+document.addEventListener('DOMContentLoaded', () => {
+  const userLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
+  setTalksLanguage(userLang);
+});
+</script>
 
 </body>
 </html>
