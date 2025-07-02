@@ -266,33 +266,21 @@ function setLanguage(lang) {
   document.querySelector("#talks h2").textContent = t.talksTitle;
   document.querySelector("#posters h2").textContent = t.postersTitle;
   document.querySelector("footer").innerHTML = `© 2025 Nadia Belmabrouk — <a href="mailto:nadia.belmabrouk@polytechnique.edu">${t.contact}</a>`;
-    // Met à jour aussi les talks
-    setTalksLanguage(lang);
+    / Fonction pour changer la langue ("en" ou "fr")
+  function updateTalksLanguage(lang) {
+    const talkItems = document.querySelectorAll(".talk-item");
+
+    talkItems.forEach(item => {
+      const title = item.getAttribute(`data-${lang}-title`);
+      const subtitle = item.getAttribute(`data-${lang}-subtitle`);
+
+      item.innerHTML = `<strong>${title}</strong><br><em>${subtitle}</em>`;
+    });
   }
 
-  function setTalksLanguage(lang) {
-    const items = document.querySelectorAll('.talk-item');
-    items.forEach(item => {
-      const title = item.dataset[lang + 'Title'];
-const subtitle = item.dataset[lang + 'Subtitle'];
-
-      item.innerHTML = <span class="talk-title">${title}</span><br><span class="talk-subtitle">${subtitle}</span>;
-    });
-   }
-  const ul = document.querySelector("#research-list");
-ul.innerHTML = "";
-t.researchItems.forEach(item => {
-  const li = document.createElement("li");
-  li.textContent = item;
-  ul.appendChild(li);
-});
-
-
-  // Auto langue au chargement
-  document.addEventListener('DOMContentLoaded', () => {
-    const userLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
-    setLanguage(userLang);
-  });
+  // Appelle la fonction avec la langue désirée
+  // Par exemple : "en" ou "fr"
+  updateTalksLanguage("en"); // ou "fr"
 </script>
 </body>
 </html>
