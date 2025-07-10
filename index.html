@@ -237,7 +237,7 @@ const translations = {
     title: "Nadia Belmabrouk",
     subtitle: "Applied Mathematics Researcher",
     aboutTitle: "About me",
-    aboutText: "I am a researcher in applied mathematics, specializing in stochastic processes and biological modeling.",
+    aboutText: "Since October 2023, I have been a postdoctoral researcher in the PEIPS team at the Centre de Applied Mathematics (CMAP, École Polytechnique), working with Sylvie Méléard and Vincent Bansaye.",
     cv: "Download my CV (PDF)",
     researchTitle: "Research themes",
     researchItems: [
@@ -260,7 +260,7 @@ const translations = {
   }
 };
 
-// Fonction pour mettre à jour les conférences
+// Met à jour le contenu des conférences
 function updateTalksLanguage(lang) {
   const talkItems = document.querySelectorAll(".talk-item");
   talkItems.forEach(item => {
@@ -270,7 +270,7 @@ function updateTalksLanguage(lang) {
   });
 }
 
-// Fonction principale pour changer toute la langue
+// Met à jour tous les textes de la page
 function setLanguage(lang) {
   const t = translations[lang];
   document.querySelector("h1").textContent = t.title;
@@ -293,12 +293,11 @@ function setLanguage(lang) {
   document.querySelector("#poster h2").textContent = t.posterTitle;
   document.querySelector("footer").innerHTML = `© 2025 Nadia Belmabrouk — <a href="mailto:nadia.belmabrouk@polytechnique.edu">${t.contact}</a>`;
 
-  // Met à jour aussi les talks
   updateTalksLanguage(lang);
 }
 
-// Appel initial en anglais
+// Initialisation
 document.addEventListener("DOMContentLoaded", () => {
-  setLanguage("en"); // Ou "fr" pour démarrer en français
+  setLanguage("en"); // Changer en "fr" pour démarrer en français
 });
 </script>
