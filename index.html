@@ -1,354 +1,153 @@
-
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <title>Nadia Belmabrouk</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --sapin: #014421;
-      --sapin-clair: #2e7d32;
-      --accent: #a5d6a7;
-      --text-light: #f1f1f1;
-      --text-dark: #222;
-      --white: #fff;
-      --radius: 12px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Inter', sans-serif;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
       display: flex;
-      min-height: 100vh;
-      background-color: var(--white);
+      height: 100vh;
+      color: #333;
     }
 
-    .main-container {
-      display: flex;
-      width: 100%;
-      flex-wrap: wrap;
-    }
-
-    .left-column {
-      background-color: var(--sapin);
-      color: var(--text-light);
-      width: 35%;
-      padding: 40px 30px;
+    .sidebar {
+      background-color: #2e4e38; /* vert sapin */
+      color: white;
+      width: 30%;
+      padding: 40px 20px;
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
-      border-top-right-radius: var(--radius);
-      border-bottom-right-radius: var(--radius);
+      align-items: center;
     }
 
-    .right-column {
-      background-color: var(--white);
-      width: 65%;
-      padding: 40px 50px;
+    .sidebar h1 {
+      margin-top: 20px;
+      font-size: 28px;
+      text-align: center;
+    }
+
+    .sidebar p {
+      font-style: italic;
+      margin: 5px 0 20px;
+      text-align: center;
+    }
+
+    .sidebar img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .content {
+      background-color: #fff;
+      width: 70%;
+      padding: 40px;
       overflow-y: auto;
-    }
-
-    header h1 {
-      font-size: 2em;
-      margin-bottom: 8px;
-    }
-
-    header p {
-      font-size: 1em;
-      color: #cce8cc;
-    }
-
-    nav {
-      margin-top: 30px;
-    }
-
-    nav a {
-      display: block;
-      color: var(--accent);
-      text-decoration: none;
-      padding: 8px 0;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    nav a:hover {
-      color: white;
-      transform: translateX(5px);
-    }
-
-    section {
-      margin-bottom: 50px;
+      box-sizing: border-box;
     }
 
     h2 {
-      font-size: 1.5em;
-      margin-bottom: 16px;
-      color: var(--sapin);
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 5px;
+      color: #2e4e38;
+      border-bottom: 2px solid #cde2d5;
+      padding-bottom: 4px;
+      margin-top: 30px;
     }
 
-    p, li {
-      font-size: 1em;
-      line-height: 1.6;
-      color: var(--text-dark);
+    nav {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    nav a {
+      background-color: #cde2d5;
+      color: #2e4e38;
+      padding: 8px 14px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    nav a:hover {
+      background-color: #a8d0b6;
     }
 
     ul {
       padding-left: 20px;
     }
 
-    .talk-title {
-      font-weight: bold;
-      color: var(--sapin);
-    }
-
-    .talk-subtitle {
-      font-style: italic;
-      color: var(--sapin-clair);
-    }
-
     footer {
+      text-align: center;
+      margin-top: 40px;
       font-size: 0.9em;
       color: #666;
-      border-top: 1px solid #eee;
-      padding-top: 20px;
-      text-align: center;
-    }
-
-    a {
-      color: var(--sapin-clair);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    #lang-selector {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      z-index: 10;
-    }
-
-    #lang-selector button {
-      margin-left: 5px;
-      padding: 6px 12px;
-      background-color: var(--sapin-clair);
-      border: none;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    #lang-selector button:hover {
-      background-color: var(--sapin);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .left-column, .right-column {
-        width: 100%;
-        border-radius: 0;
-      }
-
-      .main-container {
-        flex-direction: column;
-      }
-
-      .left-column {
-        border-bottom-left-radius: var(--radius);
-        border-bottom-right-radius: var(--radius);
-        border-top-right-radius: 0;
-      }
-
-      .right-column {
-        padding: 30px 20px;
-      }
     }
   </style>
 </head>
 <body>
-  <div id="lang-selector">
-    <button onclick="setLanguage('en')">EN</button>
-    <button onclick="setLanguage('fr')">FR</button>
+  <div class="sidebar">
+    <img src="https://via.placeholder.com/120" alt="Photo de profil" />
+    <h1>Nadia Belmabrouk</h1>
+    <p>Mathématicienne appliquée</p>
+    <nav>
+      <a href="#about">À propos</a>
+      <a href="#cv">CV</a>
+      <a href="#themes">Recherche</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
 
-  <div class="main-container">
-    <div class="left-column">
-      <header>
-        <h1>Nadia Belmabrouk</h1>
-        <p id="subtitle"></p>
-      </header>
-      <nav>
-        <a href="#about" id="nav-about"></a>
-        <a href="#cv" id="nav-cv"></a>
-        <a href="#themes" id="nav-themes"></a>
-        <a href="#papers" id="nav-papers"></a>
-        <a href="#talks" id="nav-talks"></a>
-        <a href="#poster" id="nav-poster"></a>
-      </nav>
-    </div>
+  <div class="content">
+    <section id="about">
+      <h2>À propos</h2>
+      <p>Depuis octobre 2023, je suis post-doctorante au sein de l’équipe PEIPS du Centre de Mathématiques Appliquées (CMAP, École Polytechnique), en collaboration avec Sylvie Méléard et Vincent Bansaye.</p>
+    </section>
 
-    <div class="right-column">
-      <section id="about">
-        <h2></h2>
-        <p id="about-text"></p>
-        <p>
-          <a href="https://orcid.org/0009-0009-5499-7874" target="_blank" rel="noopener noreferrer">
-            <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD" style="vertical-align: middle;">
-            ORCID: 0009-0009-5499-7874
-          </a>
-        </p>
-      </section>
+    <section id="cv">
+      <h2>CV</h2>
+      <p><a href="cv.pdf" target="_blank">Télécharger mon CV (PDF)</a></p>
+    </section>
 
-      <section id="cv">
-        <h2>CV</h2>
-        <p><a href="cv.pdf" target="_blank" id="cv-link"></a></p>
-      </section>
+    <section id="themes">
+      <h2>Thèmes de recherche</h2>
+      <ul>
+        <li>Systèmes de particules en interaction</li>
+        <li>Processus de Hawkes</li>
+        <li>Interactions à longue portée</li>
+        <li>Équations différentielles stochastiques</li>
+        <li>Réseaux bayésiens dynamiques</li>
+      </ul>
+    </section>
 
-      <section id="themes">
-        <h2></h2>
-        <ul id="research-list"></ul>
-      </section>
+    <section id="publications">
+      <h2>Publications</h2>
+      <ul>
+        <li>[1] Measure pseudo almost periodic solution... <em>Filomat</em>, 2021.</li>
+        <li>[2] Dirichlet eigenvalue problems... <em>Statistics & Probability Letters</em>, 2022.</li>
+        <li>[3] Stochastic Nicholson’s blowflies model... <em>IJ Biomathematics</em>, 2023.</li>
+      </ul>
+    </section>
 
-      <section id="papers">
-        <h2></h2>
-        <ul>
-          <li>
-            <span class="talk-title">[1]</span> 
-            <span class="talk-subtitle">"Measure pseudo almost periodic solution for a class of nonlinear delayed stochastic evolution equations driven by Brownian motion."</span><br>
-            Nadia Belmabrouk, Mondher Damak, Mohsen Miraoui. 
-            <em>Filomat</em>, 2021.
-          </li>
-        </ul>
-      </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email : <a href="mailto:nadia.belmabrouk@polytechnique.edu">nadia.belmabrouk@polytechnique.edu</a></p>
+      <p>ORCID : <a href="https://orcid.org/0009-0009-5499-7874" target="_blank">0009-0009-5499-7874</a></p>
+    </section>
 
-      <section id="talks">
-        <h2></h2>
-        <ul>
-          <li class="talk-item"
-              data-en-title="MMB Research School, Aussois, June 17, 2025."
-              data-en-subtitle="Invasion Dynamics in the Quasi-Critical Regime."
-              data-fr-title="École de recherche de la Chaire MMB, Aussois, 17 juin 2025."
-              data-fr-subtitle="Dynamique d’invasion dans un régime quasi-critique.">
-          </li>
-        </ul>
-      </section>
-
-      <section id="poster">
-        <h2></h2>
-        <ul>
-          <li><span class="talk-title">Journées Math Bio Santé, 2024.</span></li>
-        </ul>
-      </section>
-
-      <footer></footer>
-    </div>
+    <footer>
+      &copy; 2025 Nadia Belmabrouk — Tous droits réservés
+    </footer>
   </div>
-
-  <script>
-    const translations = {
-      fr: {
-        subtitle: "Chercheuse en mathématiques appliquées",
-        aboutTitle: "À propos de moi",
-        aboutText: "Depuis octobre 2023, je suis post-doctorante au sein de l’équipe PEIPS du CMAP (École Polytechnique), avec Sylvie Méléard et Vincent Bansaye.",
-        nav: {
-          about: "À propos",
-          cv: "CV",
-          themes: "Recherche",
-          papers: "Publications",
-          talks: "Conférences",
-          poster: "Poster"
-        },
-        cv: "Télécharger mon CV (PDF)",
-        researchTitle: "Thèmes de recherche",
-        researchItems: [
-          "Systèmes de particules en interaction",
-          "Processus de Hawkes",
-          "Interactions à longue portée"
-        ],
-        publicationsTitle: "Publications",
-        talksTitle: "Conférences",
-        posterTitle: "Poster",
-        contact: "Contact"
-      },
-      en: {
-        subtitle: "Applied Mathematics Researcher",
-        aboutTitle: "About me",
-        aboutText: "Since October 2023, I have been a postdoctoral researcher in the PEIPS team at CMAP (École Polytechnique), working with Sylvie Méléard and Vincent Bansaye.",
-        nav: {
-          about: "About me",
-          cv: "CV",
-          themes: "Research",
-          papers: "Publications",
-          talks: "Talks",
-          poster: "Poster"
-        },
-        cv: "Download my CV (PDF)",
-        researchTitle: "Research themes",
-        researchItems: [
-          "Interacting particle systems",
-          "Hawkes processes",
-          "Long-range interactions"
-        ],
-        publicationsTitle: "Publications",
-        talksTitle: "Talks",
-        posterTitle: "Poster",
-        contact: "Contact"
-      }
-    };
-
-    function updateTalksLanguage(lang) {
-      document.querySelectorAll(".talk-item").forEach(item => {
-        item.innerHTML = `<strong class="talk-title">${item.dataset[`${lang}-title`]}</strong><br>
-                          <span class="talk-subtitle">${item.dataset[`${lang}-subtitle`]}</span>`;
-      });
-    }
-
-    function setLanguage(lang) {
-      const t = translations[lang];
-      document.getElementById("subtitle").textContent = t.subtitle;
-      document.getElementById("nav-about").textContent = t.nav.about;
-      document.getElementById("nav-cv").textContent = t.nav.cv;
-      document.getElementById("nav-themes").textContent = t.nav.themes;
-      document.getElementById("nav-papers").textContent = t.nav.papers;
-      document.getElementById("nav-talks").textContent = t.nav.talks;
-      document.getElementById("nav-poster").textContent = t.nav.poster;
-
-      document.querySelector("#about h2").textContent = t.aboutTitle;
-      document.querySelector("#about-text").textContent = t.aboutText;
-      document.getElementById("cv-link").textContent = t.cv;
-      document.querySelector("#themes h2").textContent = t.researchTitle;
-
-      const ul = document.getElementById("research-list");
-      ul.innerHTML = "";
-      t.researchItems.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        ul.appendChild(li);
-      });
-
-      document.querySelector("#papers h2").textContent = t.publicationsTitle;
-      document.querySelector("#talks h2").textContent = t.talksTitle;
-      document.querySelector("#poster h2").textContent = t.posterTitle;
-
-      document.querySelector("footer").innerHTML =
-        `© 2025 Nadia Belmabrouk — <a href="mailto:nadia.belmabrouk@polytechnique.edu">${t.contact}</a>`;
-
-      updateTalksLanguage(lang);
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      setLanguage("fr");
-    });
-  </script>
 </body>
 </html>
+
