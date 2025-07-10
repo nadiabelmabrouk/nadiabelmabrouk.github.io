@@ -1,47 +1,66 @@
-<!DOCTYPE html>
+
+   <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <title>Nadia Belmabrouk</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --sapin: #014421;
+      --sapin-clair: #2e7d32;
+      --accent: #a5d6a7;
+      --text-light: #f1f1f1;
+      --text-dark: #222;
+      --white: #fff;
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
       display: flex;
-      height: 100vh;
-      overflow: hidden;
+      min-height: 100vh;
+      background-color: var(--white);
     }
 
     .main-container {
       display: flex;
       width: 100%;
+      flex-wrap: wrap;
     }
 
     .left-column {
-      background-color: #014421; /* vert sapin */
+      background-color: var(--sapin);
+      color: var(--text-light);
       width: 35%;
-      color: white;
-      padding: 30px 20px;
-      box-sizing: border-box;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      border-top-right-radius: var(--radius);
+      border-bottom-right-radius: var(--radius);
     }
 
     .right-column {
-      background-color: white;
+      background-color: var(--white);
       width: 65%;
-      padding: 30px 40px;
-      box-sizing: border-box;
+      padding: 40px 50px;
       overflow-y: auto;
     }
 
     header h1 {
-      color: #ffffff;
-      margin-bottom: 10px;
+      font-size: 2em;
+      margin-bottom: 8px;
     }
 
     header p {
-      color: #b2dfdb;
-      margin-top: 0;
+      font-size: 1em;
+      color: #cce8cc;
     }
 
     nav {
@@ -50,68 +69,116 @@
 
     nav a {
       display: block;
-      color: #c8e6c9;
+      color: var(--accent);
       text-decoration: none;
-      margin: 10px 0;
-      font-weight: bold;
+      padding: 8px 0;
+      font-weight: 600;
+      transition: all 0.3s ease;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: white;
+      transform: translateX(5px);
     }
 
     section {
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
 
     h2 {
-      color: #014421;
-      border-bottom: 2px solid #a5d6a7;
+      font-size: 1.5em;
+      margin-bottom: 16px;
+      color: var(--sapin);
+      border-bottom: 2px solid var(--accent);
       padding-bottom: 5px;
+    }
+
+    p, li {
+      font-size: 1em;
+      line-height: 1.6;
+      color: var(--text-dark);
+    }
+
+    ul {
+      padding-left: 20px;
     }
 
     .talk-title {
       font-weight: bold;
+      color: var(--sapin);
     }
 
     .talk-subtitle {
       font-style: italic;
-      color: #2e7d32;
+      color: var(--sapin-clair);
     }
 
     footer {
-      text-align: center;
-      padding: 20px;
-      color: #888;
       font-size: 0.9em;
+      color: #666;
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+      text-align: center;
+    }
+
+    a {
+      color: var(--sapin-clair);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     #lang-selector {
       position: fixed;
       top: 10px;
       right: 10px;
-      z-index: 1000;
+      z-index: 10;
     }
 
     #lang-selector button {
       margin-left: 5px;
-      padding: 5px 10px;
-      background-color: #2e7d32;
+      padding: 6px 12px;
+      background-color: var(--sapin-clair);
       border: none;
       color: white;
-      border-radius: 4px;
+      border-radius: 6px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
     #lang-selector button:hover {
-      background-color: #1b5e20;
+      background-color: var(--sapin);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .left-column, .right-column {
+        width: 100%;
+        border-radius: 0;
+      }
+
+      .main-container {
+        flex-direction: column;
+      }
+
+      .left-column {
+        border-bottom-left-radius: var(--radius);
+        border-bottom-right-radius: var(--radius);
+        border-top-right-radius: 0;
+      }
+
+      .right-column {
+        padding: 30px 20px;
+      }
     }
   </style>
 </head>
 <body>
   <div id="lang-selector">
-    <button onclick="setLanguage('en')">English</button>
-    <button onclick="setLanguage('fr')">Français</button>
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('fr')">FR</button>
   </div>
 
   <div class="main-container">
@@ -120,7 +187,6 @@
         <h1>Nadia Belmabrouk</h1>
         <p id="subtitle"></p>
       </header>
-
       <nav>
         <a href="#about" id="nav-about"></a>
         <a href="#cv" id="nav-cv"></a>
@@ -241,11 +307,9 @@
     };
 
     function updateTalksLanguage(lang) {
-      const talkItems = document.querySelectorAll(".talk-item");
-      talkItems.forEach(item => {
-        const title = item.getAttribute(`data-${lang}-title`);
-        const subtitle = item.getAttribute(`data-${lang}-subtitle`);
-        item.innerHTML = `<strong class="talk-title">${title}</strong><br><span class="talk-subtitle">${subtitle}</span>`;
+      document.querySelectorAll(".talk-item").forEach(item => {
+        item.innerHTML = `<strong class="talk-title">${item.dataset[`${lang}-title`]}</strong><br>
+                          <span class="talk-subtitle">${item.dataset[`${lang}-subtitle`]}</span>`;
       });
     }
 
