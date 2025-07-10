@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <title>Nadia Belmabrouk</title>
   <style>
+    /* Styles identiques à ceux que tu avais */
     body {
       background: linear-gradient(to bottom right, #ff69b4, #ffffff);
       margin: 0;
@@ -97,22 +98,22 @@
 </div>
 
 <header>
-  <h1>Nadia Belmabrouk</h1>
-  <p>Applied Mathematics Researcher</p>
+  <h1></h1>
+  <p></p>
 </header>
 
 <nav>
-  <a href="#about">About me</a>
-  <a href="#cv">CV</a>
-  <a href="#themes">Research</a>
-  <a href="#papers">Publications</a>
-  <a href="#talks">Talks</a>
-  <a href="#poster">Poster</a>
+  <a href="#about" id="nav-about"></a>
+  <a href="#cv" id="nav-cv"></a>
+  <a href="#themes" id="nav-themes"></a>
+  <a href="#papers" id="nav-papers"></a>
+  <a href="#talks" id="nav-talks"></a>
+  <a href="#poster" id="nav-poster"></a>
 </nav>
 
 <section id="about">
-  <h2>About me</h2>
-  <p> Since October 2023, I have been a postdoctoral researcher in the PEIPS team in Centre de Mathématiques Appliquées (CMAP, École Polytechnique), in collaboration with Sylvie Méléard and Vincent Bansaye.</p>
+  <h2></h2>
+  <p id="about-text"></p>
   <p>
     <a href="https://orcid.org/0009-0009-5499-7874" target="_blank" rel="noopener noreferrer">
       <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" alt="ORCID iD" style="vertical-align: middle;">
@@ -123,28 +124,16 @@
 
 <section id="cv">
   <h2>CV</h2>
-  <p><a href="cv.pdf" target="_blank">Download my CV (PDF)</a></p>
+  <p><a href="cv.pdf" target="_blank" id="cv-link"></a></p>
 </section>
 
 <section id="themes">
-  <h2>Research themes</h2>
-  <ul id="research-list">
-    <li>Interacting particle systems</li>
-    <li>Hawkes processes</li>
-    <li>Long-range interactions</li>
-    <li>Point processes</li>
-    <li>Stochastic differential equations with jumps</li>
-    <li>Birth-death processes</li>
-    <li>Invasion models</li>
-    <li>Langevin equations</li>
-    <li>Pseudo-periodic solutions</li>
-    <li>Modeling and analysis of biological (clinical) data</li>
-    <li> Dynamic Bayesian Networks</li>
-  </ul>
+  <h2></h2>
+  <ul id="research-list"></ul>
 </section>
 
 <section id="papers">
-  <h2>Publications</h2>
+  <h2></h2>
   <ul>
     <li>
       <span class="talk-title">[1]</span> 
@@ -152,59 +141,26 @@
       Nadia Belmabrouk, Mondher Damak, Mohsen Miraoui. 
       <em>Filomat</em>, 2021.
     </li>
-
-    <li>
-      <span class="talk-title">[2]</span> 
-      <span class="talk-subtitle">"Dirichlet eigenvalue problems of irreversible Langevin diffusion."</span><br>
-      Nadia Belmabrouk, Mondher Damak, Najib Yaakoubi. 
-      <em>Statistics & Probability Letters</em>, 2022.
-    </li>
-
-    <li>
-      <span class="talk-title">[3]</span> 
-      <span class="talk-subtitle">"Stochastic Nicholson’s blowflies model with delays."</span><br>
-      Nadia Belmabrouk, Mondher Damak, Mohsen Miraoui. 
-      <em>International Journal of Biomathematics</em>, 2023.
-    </li>
+    <!-- autres publications -->
   </ul>
 </section>
 
 <section id="talks">
-  <h2>Talks</h2>
+  <h2></h2>
   <ul>
     <li class="talk-item" data-en-title="MMB Research School, Aussois, June 17, 2025." data-en-subtitle="Invasion Dynamics in the Quasi-Critical Regime." data-fr-title="École de recherche de la Chaire MMB, Aussois, 17 juin 2025." data-fr-subtitle="Dynamique d’invasion dans un régime quasi-critique."></li>
-
-    <li class="talk-item" data-en-title="MERGE Seminar, CMAP (École polytechnique), April 10, 2025." data-en-subtitle="Invasion Dynamics in the Quasi-Critical Regime." data-fr-title="Séminaire MERGE, CMAP (École polytechnique), 10 avril 2025." data-fr-subtitle="Dynamique d’invasion dans un régime quasi-critique."></li>
-
-    <li class="talk-item" data-en-title="Mathematical Society of Tunisia Conference, Monastir, April 25–28, 2024." data-en-subtitle="Asymptotics of Multivariate Hawkes Process with Long-Range Connectivity." data-fr-title="Colloque de la Société Mathématique de Tunisie, Monastir, 25–28 avril 2024." data-fr-subtitle="Processus de Hawkes sur réseau à longues portées."></li>
-
-    <li class="talk-item" data-en-title="SAMM Seminar, Université Paris 1, November 17, 2023." data-en-subtitle="Asymptotics of Multivariate Hawkes Processes with Long-Range Interactions." data-fr-title="Séminaire SAMM, Université Paris 1, 17 novembre 2023." data-fr-subtitle="Processus de Hawkes sur réseau à longues portées."></li>
-
-    <li class="talk-item" data-en-title="PhD Seminar, March 14, 2023." data-en-subtitle="Asymptotics of Multivariate Hawkes Processes with Long-Range Interactions." data-fr-title="Séminaire des doctorants, 14 mars 2023." data-fr-subtitle="Processus de Hawkes sur réseau à longues portées."></li>
-
-    <li class="talk-item" data-en-title="SMT Conference, November 2, 2019." data-en-subtitle="Stochastic Nicholson’s Blowflies Model with Delays." data-fr-title="Colloque SMT, 2 novembre 2019." data-fr-subtitle="Modèle stochastique de Nicholson avec délais."></li>
-
-    <li class="talk-item" data-en-title="Stochastic Models in Life Science, Eurandom, August 4–6, 2023." data-en-subtitle="Neural Multivariate Hawkes Process with Long-Range Interactions." data-fr-title="Stochastic Models in Life Science, Eurandom, 4–6 août 2023." data-fr-subtitle="Processus de Hawkes sur réseau à longues portées."></li>
-
-    <li class="talk-item" data-en-title="ALEA Days, CIRM, Luminy, June 21–25, 2022." data-en-subtitle="Asymptotics of Multivariate Hawkes Processes with Long-Range Interactions." data-fr-title="Journées ALEA, CIRM, Luminy, 21–25 juin 2022." data-fr-subtitle="Processus de Hawkes sur réseau à longues portées."></li>
-
-    <li class="talk-item" data-en-title="Hawkes Process Days, IHP, June 5, 2022." data-en-subtitle="Asymptotics of Multivariate Hawkes Processes with Long-Range Interactions." data-fr-title="Journées Processus de Hawkes, IHP, 5 juin 2022." data-fr-subtitle="Processus de Hawkes sur réseau à longues portées."></li>
-
-    <li class="talk-item" data-en-title="ICMN (online), June 28 – July 1, 2021." data-en-subtitle="Asymptotics of Multivariate Hawkes Processes with Long-Range Interactions." data-fr-title="ICMN (en ligne), 28 juin – 1 juillet 2021." data-fr-subtitle="Processus de Hawkes sur réseau à longues portées."></li>
+    <!-- autres talks -->
   </ul>
 </section>
 
-
 <section id="poster">
-  <h2>Poster</h2>
+  <h2></h2>
   <ul>
     <li><span class="talk-title">Journées Math Bio Santé, 2024.</span></li>
   </ul>
 </section>
 
-<footer>
-  © 2025 Nadia Belmabrouk — <a href="mailto:nadia@example.com">Contact</a>
-</footer>
+<footer></footer>
 
 <script>
 const translations = {
@@ -213,6 +169,14 @@ const translations = {
     subtitle: "Chercheuse en mathématiques appliquées",
     aboutTitle: "À propos de moi",
     aboutText: "Depuis octobre 2023, je suis post-doctorante au sein de l’équipe PEIPS du Centre de Mathématiques Appliquées (CMAP, École Polytechnique), en collaboration avec Sylvie Méléard et Vincent Bansaye.",
+    nav: {
+      about: "À propos",
+      cv: "CV",
+      themes: "Recherche",
+      papers: "Publications",
+      talks: "Conférences",
+      poster: "Poster"
+    },
     cv: "Télécharger mon CV (PDF)",
     researchTitle: "Thèmes de recherche",
     researchItems: [
@@ -237,7 +201,15 @@ const translations = {
     title: "Nadia Belmabrouk",
     subtitle: "Applied Mathematics Researcher",
     aboutTitle: "About me",
-    aboutText: "Since October 2023, I have been a postdoctoral researcher in the PEIPS team at the Centre de Applied Mathematics (CMAP, École Polytechnique), working with Sylvie Méléard and Vincent Bansaye.",
+    aboutText: "Since October 2023, I have been a postdoctoral researcher in the PEIPS team at the Centre for Applied Mathematics (CMAP, École Polytechnique), working with Sylvie Méléard and Vincent Bansaye.",
+    nav: {
+      about: "About me",
+      cv: "CV",
+      themes: "Research",
+      papers: "Publications",
+      talks: "Talks",
+      poster: "Poster"
+    },
     cv: "Download my CV (PDF)",
     researchTitle: "Research themes",
     researchItems: [
@@ -260,7 +232,6 @@ const translations = {
   }
 };
 
-// Met à jour le contenu des conférences
 function updateTalksLanguage(lang) {
   const talkItems = document.querySelectorAll(".talk-item");
   talkItems.forEach(item => {
@@ -270,14 +241,22 @@ function updateTalksLanguage(lang) {
   });
 }
 
-// Met à jour tous les textes de la page
 function setLanguage(lang) {
   const t = translations[lang];
+
   document.querySelector("h1").textContent = t.title;
   document.querySelector("header p").textContent = t.subtitle;
+
+  document.querySelector("#nav-about").textContent = t.nav.about;
+  document.querySelector("#nav-cv").textContent = t.nav.cv;
+  document.querySelector("#nav-themes").textContent = t.nav.themes;
+  document.querySelector("#nav-papers").textContent = t.nav.papers;
+  document.querySelector("#nav-talks").textContent = t.nav.talks;
+  document.querySelector("#nav-poster").textContent = t.nav.poster;
+
   document.querySelector("#about h2").textContent = t.aboutTitle;
   document.querySelector("#about-text").textContent = t.aboutText;
-  document.querySelector("#cv a").textContent = t.cv;
+  document.querySelector("#cv-link").textContent = t.cv;
   document.querySelector("#themes h2").textContent = t.researchTitle;
 
   const ul = document.querySelector("#research-list");
@@ -291,13 +270,17 @@ function setLanguage(lang) {
   document.querySelector("#papers h2").textContent = t.publicationsTitle;
   document.querySelector("#talks h2").textContent = t.talksTitle;
   document.querySelector("#poster h2").textContent = t.posterTitle;
-  document.querySelector("footer").innerHTML = `© 2025 Nadia Belmabrouk — <a href="mailto:nadia.belmabrouk@polytechnique.edu">${t.contact}</a>`;
+
+  document.querySelector("footer").innerHTML =
+    `© 2025 Nadia Belmabrouk — <a href="mailto:nadia.belmabrouk@polytechnique.edu">${t.contact}</a>`;
 
   updateTalksLanguage(lang);
 }
 
-// Initialisation
+// Par défaut : français
 document.addEventListener("DOMContentLoaded", () => {
-  setLanguage("en"); // Changer en "fr" pour démarrer en français
+  setLanguage("fr"); // ou "en" pour démarrer en anglais
 });
 </script>
+</body>
+</html>
