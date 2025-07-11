@@ -11,9 +11,6 @@
       --blanc: #ffffff;
       --gris-texte: #333;
       --fond-btn-hover: #80CBC4;
-      --sidebar-bg: var(--turquoise-clair);
-      --sidebar-text: var(--turquoise-fonce);
-      --sidebar-link-hover: #004d40;
     }
 
     * {
@@ -27,71 +24,61 @@
       height: 100vh;
       font-family: 'Segoe UI', sans-serif;
       color: var(--gris-texte);
+      overflow: hidden;
     }
 
+    /* Sidebar */
     .sidebar {
       width: 35%;
-      background-color: var(--sidebar-bg);
-      color: var(--sidebar-text);
+      background-color: var(--turquoise-fonce);
+      color: var(--blanc);
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-      text-align: center;
+      align-items: flex-start;
+      padding: 40px 30px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
       overflow-y: auto;
-    }
-
-    .sidebar img {
-      width: 75%;
-      max-width: 300px;
-      border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.15);
-      margin-bottom: 30px;
+      text-align: left;
     }
 
     .sidebar h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-      color: var(--sidebar-text);
+      font-size: 32px;
+      margin-bottom: 20px;
+      font-weight: bold;
     }
 
-    .sidebar p {
-      font-size: 16px;
-      font-style: italic;
-      margin-bottom: 30px;
+    .sidebar img {
+      width: 80%;
+      max-width: 250px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      margin-bottom: 40px;
     }
 
-    /* Menu des titres dans sidebar */
-    nav.sidebar-menu {
-      width: 100%;
-      text-align: left;
-      margin-top: 10px;
-    }
-
-    nav.sidebar-menu a {
+    .sidebar nav a {
       display: block;
-      color: var(--sidebar-text);
+      color: var(--blanc);
       text-decoration: none;
-      padding: 8px 12px;
-      border-radius: 6px;
-      margin-bottom: 8px;
-      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 20px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: color 0.3s;
     }
 
-    nav.sidebar-menu a:hover,
-    nav.sidebar-menu a.active {
-      background-color: var(--sidebar-link-hover);
-      color: white;
+    .sidebar nav a:hover,
+    .sidebar nav a.active {
+      color: var(--turquoise-clair);
+      font-weight: bold;
     }
 
+    /* Content */
     .content {
       width: 65%;
       background-color: var(--blanc);
-      padding: 40px;
+      padding: 40px 50px;
       overflow-y: auto;
-      scroll-behavior: smooth;
       height: 100vh;
     }
 
@@ -118,14 +105,14 @@
 
     h2 {
       color: var(--turquoise-fonce);
-      margin-top: 20px;
+      margin-top: 40px;
       font-size: 22px;
-      scroll-margin-top: 80px; /* pour que le titre ne soit pas caché par le scroll */
     }
 
     p, ul {
       font-size: 16px;
       margin-top: 10px;
+      line-height: 1.5;
     }
 
     ul {
@@ -133,7 +120,7 @@
     }
 
     footer {
-      margin-top: 40px;
+      margin-top: 60px;
       font-size: 0.85em;
       text-align: center;
       color: #777;
@@ -148,6 +135,7 @@
       text-decoration: underline;
     }
 
+    /* Responsive */
     @media (max-width: 768px) {
       body {
         flex-direction: column;
@@ -160,9 +148,11 @@
 
       .sidebar img {
         width: 60%;
+        margin-bottom: 20px;
       }
 
       .content {
+        padding: 20px;
         height: auto;
       }
     }
@@ -170,13 +160,12 @@
 </head>
 <body>
   <div class="sidebar">
-    <img src="https://via.placeholder.com/300x400" alt="Photo de Nadia">
     <h1>Nadia Belmabrouk</h1>
-    <p>Chercheuse en mathématiques appliquées</p>
-
-    <!-- Menu des titres -->
-    <nav class="sidebar-menu" id="sidebarMenu">
-      <!-- Liens ajoutés par JS -->
+    <img src="https://via.placeholder.com/300x400" alt="Photo de Nadia">
+    <nav>
+      <a href="#apropos" class="active">À propos de moi</a>
+      <a href="#themes">Thèmes de recherche</a>
+      <a href="#publications">Publications récentes</a>
     </nav>
   </div>
 
@@ -186,7 +175,7 @@
       <button onclick="setLang('en')">English</button>
     </div>
 
-    <div id="fr" class="lang-section">
+    <div id="fr">
       <h2 id="apropos">À propos de moi</h2>
       <p>Depuis octobre 2023, je suis post-doctorante au CMAP (École Polytechnique), dans l’équipe PEIPS.</p>
 
@@ -206,7 +195,54 @@
       <footer>© 2025 Nadia Belmabrouk — <a href="mailto:nadia.belmabrouk@polytechnique.edu">Me contacter</a></footer>
     </div>
 
-    <div id="en" class="lang-section" style="display: none;">
-      <
+    <div id="en" style="display: none;">
+      <h2 id="about">About Me</h2>
+      <p>Since October 2023, I have been a postdoctoral researcher at CMAP (École Polytechnique), in the PEIPS team.</p>
 
+      <h2 id="research">Research Topics</h2>
+      <ul>
+        <li>Hawkes processes</li>
+        <li>Stochastic differential equations</li>
+        <li>Invasion models</li>
+      </ul>
 
+      <h2 id="publications_en">Recent Publications</h2>
+      <ul>
+        <li>Stochastic Nicholson’s model, IJBiomathematics, 2023</li>
+        <li>Dirichlet eigenvalues for Langevin diffusions, SPL, 2022</li>
+      </ul>
+
+      <footer>© 2025 Nadia Belmabrouk — <a href="mailto:nadia.belmabrouk@polytechnique.edu">Contact me</a></footer>
+    </div>
+  </div>
+
+  <script>
+    // Gestion du changement de langue
+    function setLang(lang) {
+      document.getElementById('fr').style.display = (lang === 'fr') ? 'block' : 'none';
+      document.getElementById('en').style.display = (lang === 'en') ? 'block' : 'none';
+    }
+
+    // Gestion des liens cliquables dans la sidebar avec scroll doux
+    document.querySelectorAll('.sidebar nav a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+
+        // Retire la classe active de tous les liens
+        document.querySelectorAll('.sidebar nav a').forEach(a => a.classList.remove('active'));
+
+        // Ajoute active au lien cliqué
+        link.classList.add('active');
+
+        // Scroll doux vers la section correspondante
+        const target = document.querySelector(link.getAttribute('href'));
+        if(target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+     
