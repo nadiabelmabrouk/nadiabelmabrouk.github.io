@@ -4,123 +4,142 @@
   <meta charset="UTF-8" />
   <title>Nadia Belmabrouk</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      padding: 0;
+    }
+    body {
+      font-family: 'Georgia', serif;
       display: flex;
       height: 100vh;
-      color: #333;
+      color: #5a5a5a;
+      background-color: #fcefee;
     }
-
     .sidebar {
-      background-color: #2e4e38; /* vert sapin */
+      background-color: #6e3b47;
       color: white;
       width: 30%;
       padding: 40px 20px;
-      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       align-items: center;
+      box-shadow: 4px 0 10px rgba(0,0,0,0.1);
     }
-
-    .sidebar h1 {
-      margin-top: 20px;
-      font-size: 28px;
-      text-align: center;
-    }
-
-    .sidebar p {
-      font-style: italic;
-      margin: 5px 0 20px;
-      text-align: center;
-    }
-
     .sidebar img {
       width: 120px;
       height: 120px;
-      object-fit: cover;
       border-radius: 50%;
-      border: 3px solid #fff;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      object-fit: cover;
+      border: 3px solid white;
+      margin-bottom: 20px;
     }
-
-    .content {
-      background-color: #fff;
-      width: 70%;
-      padding: 40px;
-      overflow-y: auto;
-      box-sizing: border-box;
+    .sidebar h1 {
+      font-size: 26px;
+      margin-bottom: 5px;
     }
-
-    h2 {
-      color: #2e4e38;
-      border-bottom: 2px solid #cde2d5;
-      padding-bottom: 4px;
-      margin-top: 30px;
+    .sidebar p {
+      font-style: italic;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 14px;
     }
-
-    nav {
-      margin-top: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
-
     nav a {
-      background-color: #cde2d5;
-      color: #2e4e38;
-      padding: 8px 14px;
-      border-radius: 20px;
+      display: block;
+      margin: 10px 0;
+      color: #fcefee;
       text-decoration: none;
       font-weight: 500;
-      transition: background 0.2s;
+      transition: color 0.3s;
     }
-
     nav a:hover {
-      background-color: #a8d0b6;
+      color: #d9a5b3;
     }
-
+    .language-switch {
+      margin-top: 30px;
+    }
+    .language-switch button {
+      background: #fcefee;
+      color: #6e3b47;
+      border: none;
+      border-radius: 20px;
+      padding: 6px 14px;
+      margin: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .language-switch button:hover {
+      background: #d9a5b3;
+      color: white;
+    }
+    .content {
+      width: 70%;
+      padding: 50px;
+      overflow-y: auto;
+      background-color: #fff;
+      border-top-left-radius: 30px;
+    }
+    h2 {
+      color: #6e3b47;
+      border-bottom: 2px solid #d9a5b3;
+      margin-top: 30px;
+      padding-bottom: 5px;
+    }
     ul {
-      padding-left: 20px;
+      margin-left: 20px;
+      margin-top: 10px;
     }
-
+    a {
+      color: #6e3b47;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #d9a5b3;
+      text-decoration: underline;
+    }
     footer {
-      text-align: center;
       margin-top: 40px;
       font-size: 0.9em;
-      color: #666;
+      color: #999;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <div class="sidebar">
-    <img src="https://via.placeholder.com/120" alt="Photo de profil" />
+    <img src="https://via.placeholder.com/120" alt="Photo de Nadia">
     <h1>Nadia Belmabrouk</h1>
     <p>Mathématicienne appliquée</p>
     <nav>
-      <a href="#about">À propos</a>
-      <a href="#cv">CV</a>
-      <a href="#themes">Recherche</a>
-      <a href="#publications">Publications</a>
-      <a href="#contact">Contact</a>
+      <a href="#about" data-key="about">À propos / About</a>
+      <a href="#cv" data-key="cv">CV</a>
+      <a href="#themes" data-key="themes">Thèmes / Topics</a>
+      <a href="#publications" data-key="publications">Publications</a>
+      <a href="#contact" data-key="contact">Contact</a>
     </nav>
+    <div class="language-switch">
+      <button onclick="setLanguage('fr')">FR</button>
+      <button onclick="setLanguage('en')">EN</button>
+    </div>
   </div>
 
   <div class="content">
     <section id="about">
-      <h2>À propos</h2>
-      <p>Depuis octobre 2023, je suis post-doctorante au sein de l’équipe PEIPS du Centre de Mathématiques Appliquées (CMAP, École Polytechnique), en collaboration avec Sylvie Méléard et Vincent Bansaye.</p>
+      <h2 data-key="about-title">À propos</h2>
+      <p data-key="about-text">
+        Depuis octobre 2023, je suis post-doctorante au sein de l’équipe PEIPS du CMAP (École Polytechnique), en collaboration avec Sylvie Méléard et Vincent Bansaye.
+      </p>
     </section>
 
     <section id="cv">
-      <h2>CV</h2>
-      <p><a href="cv.pdf" target="_blank">Télécharger mon CV (PDF)</a></p>
+      <h2 data-key="cv-title">CV</h2>
+      <p><a href="cv.pdf" target="_blank" data-key="cv-download">Télécharger mon CV (PDF)</a></p>
     </section>
 
     <section id="themes">
-      <h2>Thèmes de recherche</h2>
-      <ul>
+      <h2 data-key="themes-title">Thèmes de recherche</h2>
+      <ul data-key="themes-list">
         <li>Systèmes de particules en interaction</li>
         <li>Processus de Hawkes</li>
         <li>Interactions à longue portée</li>
@@ -130,8 +149,8 @@
     </section>
 
     <section id="publications">
-      <h2>Publications</h2>
-      <ul>
+      <h2 data-key="publications-title">Publications</h2>
+      <ul data-key="publications-list">
         <li>[1] Measure pseudo almost periodic solution... <em>Filomat</em>, 2021.</li>
         <li>[2] Dirichlet eigenvalue problems... <em>Statistics & Probability Letters</em>, 2022.</li>
         <li>[3] Stochastic Nicholson’s blowflies model... <em>IJ Biomathematics</em>, 2023.</li>
@@ -139,7 +158,7 @@
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
+      <h2 data-key="contact-title">Contact</h2>
       <p>Email : <a href="mailto:nadia.belmabrouk@polytechnique.edu">nadia.belmabrouk@polytechnique.edu</a></p>
       <p>ORCID : <a href="https://orcid.org/0009-0009-5499-7874" target="_blank">0009-0009-5499-7874</a></p>
     </section>
@@ -148,6 +167,65 @@
       &copy; 2025 Nadia Belmabrouk — Tous droits réservés
     </footer>
   </div>
+
+  <script>
+    const translations = {
+      fr: {
+        "about-title": "À propos",
+        "about-text": "Depuis octobre 2023, je suis post-doctorante au sein de l’équipe PEIPS du CMAP (École Polytechnique), en collaboration avec Sylvie Méléard et Vincent Bansaye.",
+        "cv-title": "CV",
+        "cv-download": "Télécharger mon CV (PDF)",
+        "themes-title": "Thèmes de recherche",
+        "themes-list": `
+          <li>Systèmes de particules en interaction</li>
+          <li>Processus de Hawkes</li>
+          <li>Interactions à longue portée</li>
+          <li>Équations différentielles stochastiques</li>
+          <li>Réseaux bayésiens dynamiques</li>
+        `,
+        "publications-title": "Publications",
+        "publications-list": `
+          <li>[1] Measure pseudo almost periodic solution... <em>Filomat</em>, 2021.</li>
+          <li>[2] Dirichlet eigenvalue problems... <em>Statistics & Probability Letters</em>, 2022.</li>
+          <li>[3] Stochastic Nicholson’s blowflies model... <em>IJ Biomathematics</em>, 2023.</li>
+        `,
+        "contact-title": "Contact"
+      },
+      en: {
+        "about-title": "About",
+        "about-text": "Since October 2023, I have been a postdoctoral researcher in the PEIPS team at CMAP (École Polytechnique), working with Sylvie Méléard and Vincent Bansaye.",
+        "cv-title": "CV",
+        "cv-download": "Download my CV (PDF)",
+        "themes-title": "Research Topics",
+        "themes-list": `
+          <li>Interacting particle systems</li>
+          <li>Hawkes processes</li>
+          <li>Long-range interactions</li>
+          <li>Stochastic differential equations</li>
+          <li>Dynamic Bayesian networks</li>
+        `,
+        "publications-title": "Publications",
+        "publications-list": `
+          <li>[1] Measure pseudo almost periodic solution... <em>Filomat</em>, 2021.</li>
+          <li>[2] Dirichlet eigenvalue problems... <em>Statistics & Probability Letters</em>, 2022.</li>
+          <li>[3] Stochastic Nicholson’s blowflies model... <em>IJ Biomathematics</em>, 2023.</li>
+        `,
+        "contact-title": "Contact"
+      }
+    };
+
+    function setLanguage(lang) {
+      for (const key in translations[lang]) {
+        const element = document.querySelector(`[data-key="${key}"]`);
+        if (element) {
+          if (element.tagName === "UL") {
+            element.innerHTML = translations[lang][key];
+          } else {
+            element.innerHTML = translations[lang][key];
+          }
+        }
+      }
+    }
+  </script>
 </body>
 </html>
-
