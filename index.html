@@ -1,153 +1,153 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nadia Belmabrouk</title>
-  <style>
-    :root {
-      --turquoise-clair: #B2DFDB;
-      --turquoise-fonce: #00796B;
-      --blanc: #ffffff;
-      --gris-texte: #333333;
-      --fond-btn-hover: #80CBC4;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nadia Belmabrouk</title>
+<style>
+  /* Couleurs inspirées de Clara Lage */
+  :root {
+    --sidebar-bg: #00796B; /* turquoise foncé */
+    --sidebar-text: #fff;   /* blanc */
+    --sidebar-hover: #004d40; /* plus foncé au hover */
+    --content-bg: #fff;
+    --content-text: #333;
+  }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    background: var(--content-bg);
+    color: var(--content-text);
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  .sidebar h1 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  /* Menu vertical */
+  .sidebar nav a {
+    display: block;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 0;
+    font-size: 18px;
+    border-left: 4px solid transparent;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+
+  .sidebar nav a:hover,
+  .sidebar nav a.active {
+    background-color: var(--sidebar-hover);
+    border-left-color: #80cbc4;
+  }
+
+  /* Content */
+  .content {
+    flex: 1;
+    padding: 40px 50px;
+    overflow-y: auto;
+  }
+
+  h2 {
+    color: var(--sidebar-bg);
+    margin-bottom: 15px;
+  }
+
+  ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* Boutons langue */
+  .lang-buttons {
+    text-align: right;
+    margin-bottom: 30px;
+  }
+
+  .lang-buttons button {
+    background-color: var(--sidebar-bg);
+    border: none;
+    color: var(--sidebar-text);
+    padding: 8px 16px;
+    margin-left: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s;
+  }
+
+  .lang-buttons button:hover {
+    background-color: #004d40;
+  }
+
+  /* Responsive */
+  @media(max-width: 768px){
     body {
-      display: flex;
-      height: 100vh;
-      font-family: 'Segoe UI', sans-serif;
-      color: var(--gris-texte);
-      background-color: var(--blanc);
-    }
-
-    /* Sidebar propre style */
-    .sidebar {
-      width: 35%;
-      background-color: var(--blanc); /* fond blanc */
-      color: var(--gris-texte);       /* texte gris foncé */
-      display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-      text-align: center;
-      box-shadow: 2px 0 8px rgba(0,0,0,0.1);
     }
-
-    .sidebar img {
-      width: 75%;
-      max-width: 300px;
-      border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.15);
-      margin-bottom: 30px;
+    .sidebar {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 15px 10px;
     }
-
     .sidebar h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-      color: var(--gris-texte);
-    }
-
-    .sidebar p {
-      font-size: 16px;
-      font-style: normal; /* pas italique */
-      margin: 5px 0;
-    }
-
-    .content {
-      width: 65%;
-      background-color: var(--blanc);
-      padding: 40px;
-      overflow-y: auto;
-      color: var(--gris-texte);
-    }
-
-    .lang-buttons {
-      text-align: right;
-      margin-bottom: 20px;
-    }
-
-    .lang-buttons button {
-      background-color: var(--turquoise-clair);
-      border: none;
-      color: var(--turquoise-fonce);
-      padding: 8px 16px;
-      margin-left: 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .lang-buttons button:hover {
-      background-color: var(--fond-btn-hover);
-    }
-
-    h2 {
-      color: var(--turquoise-fonce);
-      margin-top: 20px;
+      margin-bottom: 0;
       font-size: 22px;
+      align-self: center;
     }
-
-    p, ul {
+    .sidebar nav {
+      display: flex;
+      gap: 20px;
+    }
+    .sidebar nav a {
+      padding: 5px 0;
       font-size: 16px;
-      margin-top: 10px;
+      border-left: none;
+      border-bottom: 2px solid transparent;
     }
-
-    ul {
-      padding-left: 20px;
+    .sidebar nav a:hover,
+    .sidebar nav a.active {
+      border-bottom-color: #80cbc4;
+      background: none;
     }
-
-    footer {
-      margin-top: 40px;
-      font-size: 0.85em;
-      text-align: center;
-      color: #777;
+    .content {
+      padding: 20px;
     }
-
-    a {
-      color: var(--turquoise-fonce);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
-
-      .sidebar, .content {
-        width: 100%;
-        height: auto;
-      }
-
-      .sidebar img {
-        width: 60%;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
   <div class="sidebar">
-    <img src="https://via.placeholder.com/300x400" alt="Photo de Nadia">
-
-    <!-- Titre dynamique -->
-    <h1 id="sidebar-title">Nadia Belmabrouk</h1>
-
-    <!-- Texte bilingue -->
-    <p id="sidebar-fr">Chercheuse en mathématiques appliquées</p>
-    <p id="sidebar-en" style="display:none;">Researcher in Applied Mathematics</p>
+    <h1>Nadia Belmabrouk</h1>
+    <nav>
+      <a href="#" class="active" onclick="showSection('about')">À propos</a>
+      <a href="#" onclick="showSection('research')">Thèmes de recherche</a>
+      <a href="#" onclick="showSection('publications')">Publications</a>
+    </nav>
   </div>
 
   <div class="content">
@@ -156,64 +156,62 @@
       <button onclick="setLang('en')">English</button>
     </div>
 
-    <div id="fr">
-      <h2>À propos de moi</h2>
-      <p>Depuis octobre 2023, je suis post-doctorante au CMAP (École Polytechnique), dans l’équipe PEIPS.</p>
+    <!-- Sections à afficher/masquer -->
+    <section id="about" class="section">
+      <h2 data-fr="À propos de moi" data-en="About Me">À propos de moi</h2>
+      <p data-fr="Depuis octobre 2023, je suis post-doctorante au CMAP (École Polytechnique), dans l’équipe PEIPS."
+         data-en="Since October 2023, I have been a postdoctoral researcher at CMAP (École Polytechnique), in the PEIPS team.">
+        Depuis octobre 2023, je suis post-doctorante au CMAP (École Polytechnique), dans l’équipe PEIPS.
+      </p>
+    </section>
 
-      <h2>Thèmes de recherche</h2>
+    <section id="research" class="section" style="display:none;">
+      <h2 data-fr="Thèmes de recherche" data-en="Research Topics">Thèmes de recherche</h2>
       <ul>
-        <li>Processus de Hawkes</li>
-        <li>Équations différentielles stochastiques</li>
-        <li>Modèles d’invasion</li>
+        <li data-fr="Processus de Hawkes" data-en="Hawkes processes">Processus de Hawkes</li>
+        <li data-fr="Équations différentielles stochastiques" data-en="Stochastic differential equations">Équations différentielles stochastiques</li>
+        <li data-fr="Modèles d’invasion" data-en="Invasion models">Modèles d’invasion</li>
       </ul>
+    </section>
 
-      <h2>Publications récentes</h2>
+    <section id="publications" class="section" style="display:none;">
+      <h2 data-fr="Publications récentes" data-en="Recent Publications">Publications récentes</h2>
       <ul>
-        <li>Stochastic Nicholson’s model, IJBiomathematics, 2023</li>
-        <li>Dirichlet eigenvalues for Langevin diffusions, SPL, 2022</li>
+        <li data-fr="Stochastic Nicholson’s model, IJBiomathematics, 2023" data-en="Stochastic Nicholson’s model, IJBiomathematics, 2023">
+          Stochastic Nicholson’s model, IJBiomathematics, 2023
+        </li>
+        <li data-fr="Dirichlet eigenvalues for Langevin diffusions, SPL, 2022" data-en="Dirichlet eigenvalues for Langevin diffusions, SPL, 2022">
+          Dirichlet eigenvalues for Langevin diffusions, SPL, 2022
+        </li>
       </ul>
+    </section>
 
-      <footer>© 2025 Nadia Belmabrouk — <a href="mailto:nadia.belmabrouk@polytechnique.edu">Me contacter</a></footer>
-    </div>
-
-    <div id="en" style="display: none;">
-      <h2>About Me</h2>
-      <p>Since October 2023, I have been a postdoctoral researcher at CMAP (École Polytechnique), in the PEIPS team.</p>
-
-      <h2>Research Topics</h2>
-      <ul>
-        <li>Hawkes processes</li>
-        <li>Stochastic differential equations</li>
-        <li>Invasion models</li>
-      </ul>
-
-      <h2>Recent Publications</h2>
-      <ul>
-        <li>Stochastic Nicholson’s model, IJBiomathematics, 2023</li>
-        <li>Dirichlet eigenvalues for Langevin diffusions, SPL, 2022</li>
-      </ul>
-
-      <footer>© 2025 Nadia Belmabrouk — <a href="mailto:nadia.belmabrouk@polytechnique.edu">Contact me</a></footer>
-    </div>
   </div>
 
-  <script>
-    function setLang(lang) {
-      // Affiche la section correspondante dans le contenu principal
-      document.getElementById('fr').style.display = (lang === 'fr') ? 'block' : 'none';
-      document.getElementById('en').style.display = (lang === 'en') ? 'block' : 'none';
+<script>
+  // Changement de langue : modifie le texte des éléments ayant les data-fr / data-en
+  function setLang(lang) {
+    document.querySelectorAll('[data-fr]').forEach(el => {
+      el.textContent = (lang === 'fr') ? el.getAttribute('data-fr') : el.getAttribute('data-en');
+    });
+  }
 
-      // Affiche le texte correspondant dans la sidebar
-      document.getElementById('sidebar-fr').style.display = (lang === 'fr') ? 'block' : 'none';
-      document.getElementById('sidebar-en').style.display = (lang === 'en') ? 'block' : 'none';
+  // Gère l'affichage des sections via le menu sidebar
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(sec => {
+      sec.style.display = (sec.id === id) ? 'block' : 'none';
+    });
+    // Gérer active dans menu
+    document.querySelectorAll('.sidebar nav a').forEach(a => {
+      a.classList.toggle('active', a.getAttribute('onclick').includes(id));
+    });
+  }
 
-      // Met à jour le titre sidebar (ici fixe, mais tu peux personnaliser)
-      document.getElementById('sidebar-title').innerText = 'Nadia Belmabrouk';
-    }
-
-    // Initialisation par défaut en français
-    setLang('fr');
-  </script>
+  // Initialisation
+  setLang('fr');
+  showSection('about');
+</script>
 
 </body>
 </html>
+
