@@ -11,6 +11,9 @@
       --blanc: #ffffff;
       --gris-texte: #333;
       --fond-btn-hover: #80CBC4;
+      --sidebar-bg: var(--turquoise-clair);
+      --sidebar-text: var(--turquoise-fonce);
+      --sidebar-link-hover: #004d40;
     }
 
     * {
@@ -28,14 +31,14 @@
 
     .sidebar {
       width: 35%;
-      background-color: var(--turquoise-clair);
-      color: var(--turquoise-fonce);
+      background-color: var(--sidebar-bg);
+      color: var(--sidebar-text);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       padding: 40px 20px;
       text-align: center;
+      overflow-y: auto;
     }
 
     .sidebar img {
@@ -49,12 +52,38 @@
     .sidebar h1 {
       font-size: 28px;
       margin-bottom: 10px;
-      color: var(--turquoise-fonce);
+      color: var(--sidebar-text);
     }
 
     .sidebar p {
       font-size: 16px;
       font-style: italic;
+      margin-bottom: 30px;
+    }
+
+    /* Menu des titres dans sidebar */
+    nav.sidebar-menu {
+      width: 100%;
+      text-align: left;
+      margin-top: 10px;
+    }
+
+    nav.sidebar-menu a {
+      display: block;
+      color: var(--sidebar-text);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    nav.sidebar-menu a:hover,
+    nav.sidebar-menu a.active {
+      background-color: var(--sidebar-link-hover);
+      color: white;
     }
 
     .content {
@@ -62,6 +91,8 @@
       background-color: var(--blanc);
       padding: 40px;
       overflow-y: auto;
+      scroll-behavior: smooth;
+      height: 100vh;
     }
 
     .lang-buttons {
@@ -89,6 +120,7 @@
       color: var(--turquoise-fonce);
       margin-top: 20px;
       font-size: 22px;
+      scroll-margin-top: 80px; /* pour que le titre ne soit pas caché par le scroll */
     }
 
     p, ul {
@@ -129,6 +161,10 @@
       .sidebar img {
         width: 60%;
       }
+
+      .content {
+        height: auto;
+      }
     }
   </style>
 </head>
@@ -137,6 +173,11 @@
     <img src="https://via.placeholder.com/300x400" alt="Photo de Nadia">
     <h1>Nadia Belmabrouk</h1>
     <p>Chercheuse en mathématiques appliquées</p>
+
+    <!-- Menu des titres -->
+    <nav class="sidebar-menu" id="sidebarMenu">
+      <!-- Liens ajoutés par JS -->
+    </nav>
   </div>
 
   <div class="content">
@@ -145,18 +186,18 @@
       <button onclick="setLang('en')">English</button>
     </div>
 
-    <div id="fr">
-      <h2>À propos de moi</h2>
+    <div id="fr" class="lang-section">
+      <h2 id="apropos">À propos de moi</h2>
       <p>Depuis octobre 2023, je suis post-doctorante au CMAP (École Polytechnique), dans l’équipe PEIPS.</p>
 
-      <h2>Thèmes de recherche</h2>
+      <h2 id="themes">Thèmes de recherche</h2>
       <ul>
         <li>Processus de Hawkes</li>
         <li>Équations différentielles stochastiques</li>
         <li>Modèles d’invasion</li>
       </ul>
 
-      <h2>Publications récentes</h2>
+      <h2 id="publications">Publications récentes</h2>
       <ul>
         <li>Stochastic Nicholson’s model, IJBiomathematics, 2023</li>
         <li>Dirichlet eigenvalues for Langevin diffusions, SPL, 2022</li>
@@ -165,33 +206,7 @@
       <footer>© 2025 Nadia Belmabrouk — <a href="mailto:nadia.belmabrouk@polytechnique.edu">Me contacter</a></footer>
     </div>
 
-    <div id="en" style="display: none;">
-      <h2>About Me</h2>
-      <p>Since October 2023, I have been a postdoctoral researcher at CMAP (École Polytechnique), in the PEIPS team.</p>
+    <div id="en" class="lang-section" style="display: none;">
+      <
 
-      <h2>Research Topics</h2>
-      <ul>
-        <li>Hawkes processes</li>
-        <li>Stochastic differential equations</li>
-        <li>Invasion models</li>
-      </ul>
-
-      <h2>Recent Publications</h2>
-      <ul>
-        <li>Stochastic Nicholson’s model, IJBiomathematics, 2023</li>
-        <li>Dirichlet eigenvalues for Langevin diffusions, SPL, 2022</li>
-      </ul>
-
-      <footer>© 2025 Nadia Belmabrouk — <a href="mailto:nadia.belmabrouk@polytechnique.edu">Contact me</a></footer>
-    </div>
-  </div>
-
-  <script>
-    function setLang(lang) {
-      document.getElementById('fr').style.display = (lang === 'fr') ? 'block' : 'none';
-      document.getElementById('en').style.display = (lang === 'en') ? 'block' : 'none';
-    }
-  </script>
-</body>
-</html>
 
