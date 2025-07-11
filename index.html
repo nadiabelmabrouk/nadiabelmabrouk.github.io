@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nadia Belmabrouk</title>
   <style>
+    :root {
+      --turquoise-clair: #B2DFDB;
+      --turquoise-fonce: #00796B;
+      --blanc: #ffffff;
+      --gris-texte: #333;
+      --fond-btn-hover: #80CBC4;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -15,13 +23,13 @@
       display: flex;
       height: 100vh;
       font-family: 'Segoe UI', sans-serif;
-      color: #333;
+      color: var(--gris-texte);
     }
 
     .sidebar {
       width: 35%;
-      background-color: #A0E7E5; /* turquoise pastel */
-      color: #004d4d;
+      background-color: var(--turquoise-clair);
+      color: var(--turquoise-fonce);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -31,17 +39,17 @@
     }
 
     .sidebar img {
-      width: 70%;
-      max-width: 280px;
+      width: 75%;
+      max-width: 300px;
       border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      box-shadow: 0 0 15px rgba(0,0,0,0.15);
       margin-bottom: 30px;
     }
 
     .sidebar h1 {
       font-size: 28px;
       margin-bottom: 10px;
-      color: #004d4d;
+      color: var(--turquoise-fonce);
     }
 
     .sidebar p {
@@ -51,7 +59,7 @@
 
     .content {
       width: 65%;
-      background-color: #fff;
+      background-color: var(--blanc);
       padding: 40px;
       overflow-y: auto;
     }
@@ -62,9 +70,9 @@
     }
 
     .lang-buttons button {
-      background-color: #A0E7E5;
+      background-color: var(--turquoise-clair);
       border: none;
-      color: #004d4d;
+      color: var(--turquoise-fonce);
       padding: 8px 16px;
       margin-left: 10px;
       border-radius: 8px;
@@ -74,11 +82,11 @@
     }
 
     .lang-buttons button:hover {
-      background-color: #7bd4d2;
+      background-color: var(--fond-btn-hover);
     }
 
     h2 {
-      color: #008B8B;
+      color: var(--turquoise-fonce);
       margin-top: 20px;
       font-size: 22px;
     }
@@ -96,26 +104,37 @@
       margin-top: 40px;
       font-size: 0.85em;
       text-align: center;
-      color: #888;
+      color: #777;
+    }
+
+    a {
+      color: var(--turquoise-fonce);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 768px) {
       body {
         flex-direction: column;
       }
+
       .sidebar, .content {
         width: 100%;
         height: auto;
       }
+
       .sidebar img {
-        width: 50%;
+        width: 60%;
       }
     }
   </style>
 </head>
 <body>
   <div class="sidebar">
-    <img src="https://via.placeholder.com/280" alt="Photo de Nadia">
+    <img src="https://via.placeholder.com/300x400" alt="Photo de Nadia">
     <h1>Nadia Belmabrouk</h1>
     <p>Chercheuse en mathématiques appliquées</p>
   </div>
@@ -175,9 +194,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-  
