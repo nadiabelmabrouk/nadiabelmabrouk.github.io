@@ -9,7 +9,7 @@
       --turquoise-clair: #B2DFDB;
       --turquoise-fonce: #00796B;
       --blanc: #ffffff;
-      --gris-texte: #333;
+      --gris-texte: #333333;
       --fond-btn-hover: #80CBC4;
     }
 
@@ -24,18 +24,21 @@
       height: 100vh;
       font-family: 'Segoe UI', sans-serif;
       color: var(--gris-texte);
+      background-color: var(--blanc);
     }
 
+    /* Sidebar propre style */
     .sidebar {
       width: 35%;
-      background-color: var(--turquoise-clair);
-      color: var(--turquoise-fonce);
+      background-color: var(--blanc); /* fond blanc */
+      color: var(--gris-texte);       /* texte gris foncé */
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 40px 20px;
       text-align: center;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.1);
     }
 
     .sidebar img {
@@ -49,12 +52,13 @@
     .sidebar h1 {
       font-size: 28px;
       margin-bottom: 10px;
-      color: var(--turquoise-fonce);
+      color: var(--gris-texte);
     }
 
     .sidebar p {
       font-size: 16px;
-      font-style: italic;
+      font-style: normal; /* pas italique */
+      margin: 5px 0;
     }
 
     .content {
@@ -62,6 +66,7 @@
       background-color: var(--blanc);
       padding: 40px;
       overflow-y: auto;
+      color: var(--gris-texte);
     }
 
     .lang-buttons {
@@ -133,17 +138,17 @@
   </style>
 </head>
 <body>
-  <div class="sidebar">
-  <img src="https://via.placeholder.com/300x400" alt="Photo de Nadia">
-  
-  <!-- Titre dynamique -->
-  <h1 id="sidebar-title">Nadia Belmabrouk</h1>
-  
-  <!-- Infos bilingues -->
-  <p id="sidebar-fr">Chercheuse en mathématiques appliquées</p>
-  <p id="sidebar-en" style="display:none;">Researcher in Applied Mathematics</p>
-</div>
 
+  <div class="sidebar">
+    <img src="https://via.placeholder.com/300x400" alt="Photo de Nadia">
+
+    <!-- Titre dynamique -->
+    <h1 id="sidebar-title">Nadia Belmabrouk</h1>
+
+    <!-- Texte bilingue -->
+    <p id="sidebar-fr">Chercheuse en mathématiques appliquées</p>
+    <p id="sidebar-en" style="display:none;">Researcher in Applied Mathematics</p>
+  </div>
 
   <div class="content">
     <div class="lang-buttons">
@@ -193,20 +198,22 @@
   </div>
 
   <script>
-    <script>
-  function setLang(lang) {
-    document.getElementById('fr').style.display = (lang === 'fr') ? 'block' : 'none';
-    document.getElementById('en').style.display = (lang === 'en') ? 'block' : 'none';
+    function setLang(lang) {
+      // Affiche la section correspondante dans le contenu principal
+      document.getElementById('fr').style.display = (lang === 'fr') ? 'block' : 'none';
+      document.getElementById('en').style.display = (lang === 'en') ? 'block' : 'none';
 
-    // Affiche les descriptions dans la sidebar selon la langue choisie
-    document.getElementById('sidebar-fr').style.display = (lang === 'fr') ? 'block' : 'none';
-    document.getElementById('sidebar-en').style.display = (lang === 'en') ? 'block' : 'none';
+      // Affiche le texte correspondant dans la sidebar
+      document.getElementById('sidebar-fr').style.display = (lang === 'fr') ? 'block' : 'none';
+      document.getElementById('sidebar-en').style.display = (lang === 'en') ? 'block' : 'none';
 
-    // Met à jour le titre sidebar (ici fixe, tu peux changer si besoin)
-    document.getElementById('sidebar-title').innerText = 'Nadia Belmabrouk';
-  }
-</script>
+      // Met à jour le titre sidebar (ici fixe, mais tu peux personnaliser)
+      document.getElementById('sidebar-title').innerText = 'Nadia Belmabrouk';
+    }
 
-    
+    // Initialisation par défaut en français
+    setLang('fr');
+  </script>
+
 </body>
 </html>
