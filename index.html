@@ -162,10 +162,19 @@
   <div class="sidebar">
     <h1>Nadia Belmabrouk</h1>
     <img src="https://via.placeholder.com/300x400" alt="Photo de Nadia">
-    <nav>
+
+    <!-- Menu FR -->
+    <nav id="nav-fr">
       <a href="#apropos" class="active">À propos de moi</a>
       <a href="#themes">Thèmes de recherche</a>
       <a href="#publications">Publications récentes</a>
+    </nav>
+
+    <!-- Menu EN -->
+    <nav id="nav-en" style="display: none;">
+      <a href="#about" class="active">About Me</a>
+      <a href="#research">Research Topics</a>
+      <a href="#publications_en">Recent Publications</a>
     </nav>
   </div>
 
@@ -175,6 +184,7 @@
       <button onclick="setLang('en')">English</button>
     </div>
 
+    <!-- Contenu FR -->
     <div id="fr">
       <h2 id="apropos">À propos de moi</h2>
       <p>Depuis octobre 2023, je suis post-doctorante au CMAP (École Polytechnique), dans l’équipe PEIPS.</p>
@@ -195,6 +205,7 @@
       <footer>© 2025 Nadia Belmabrouk — <a href="mailto:nadia.belmabrouk@polytechnique.edu">Me contacter</a></footer>
     </div>
 
+    <!-- Contenu EN -->
     <div id="en" style="display: none;">
       <h2 id="about">About Me</h2>
       <p>Since October 2023, I have been a postdoctoral researcher at CMAP (École Polytechnique), in the PEIPS team.</p>
@@ -217,24 +228,22 @@
   </div>
 
   <script>
-    // Gestion du changement de langue
     function setLang(lang) {
+      // Contenu
       document.getElementById('fr').style.display = (lang === 'fr') ? 'block' : 'none';
       document.getElementById('en').style.display = (lang === 'en') ? 'block' : 'none';
+
+      // Menu
+      document.getElementById('nav-fr').style.display = (lang === 'fr') ? 'block' : 'none';
+      document.getElementById('nav-en').style.display = (lang === 'en') ? 'block' : 'none';
     }
 
-    // Gestion des liens cliquables dans la sidebar avec scroll doux
+    // Scroll doux + lien actif
     document.querySelectorAll('.sidebar nav a').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
-
-        // Retire la classe active de tous les liens
         document.querySelectorAll('.sidebar nav a').forEach(a => a.classList.remove('active'));
-
-        // Ajoute active au lien cliqué
         link.classList.add('active');
-
-        // Scroll doux vers la section correspondante
         const target = document.querySelector(link.getAttribute('href'));
         if(target) {
           target.scrollIntoView({ behavior: 'smooth' });
@@ -244,5 +253,3 @@
   </script>
 </body>
 </html>
-
-     
