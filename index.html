@@ -56,19 +56,41 @@
     .sidebar nav a.active { color: var(--turquoise-clair); font-weight:bold; }
 
     .content {
-  width: 75%; /* un peu plus large car on a réduit la sidebar */
-  background-color: #fafafa;
-  padding: 50px;
+  width: 75%; /* déjà changé */
+  background-color: #fafafa; /* un fond légèrement gris pour détacher du vert */
+  padding: 40px 50px;
   overflow-y: auto;
   height: 100vh;
+  border-left: 1px solid #ddd; /* séparation subtile avec la sidebar */
 }
 
+/* Encadrer chaque section */
 .content section {
-  background: white;
+  background-color: white;
   padding: 25px;
   margin-bottom: 30px;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* léger relief */
+}
+
+/* Titres plus élégants */
+.content h2 {
+  color: var(--turquoise-fonce);
+  margin-bottom: 15px;
+  font-size: 24px;
+  border-bottom: 2px solid var(--turquoise-clair);
+  padding-bottom: 5px;
+}
+
+/* Lisibilité du texte */
+.content p, .content ul {
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.content ul li {
+  margin-bottom: 8px;
 }
 
 
