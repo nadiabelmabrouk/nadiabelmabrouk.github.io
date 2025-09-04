@@ -57,34 +57,32 @@
 
     /* Fond général de la partie contenu : dégradé vert */
 .content {
-  width: 75%;
-  background: linear-gradient(135deg, #b2dfdb, #00796b); /* dégradé du clair au foncé */
+  width: 75%; /* déjà changé */
+  background-color: #fafafa; /* un fond légèrement gris pour détacher du vert */
   padding: 40px 50px;
   overflow-y: auto;
   height: 100vh;
-  border-left: 1px solid #ddd;
-  color: #333; /* couleur du texte */
+  border-left: 1px solid #ddd; /* séparation subtile avec la sidebar */
 }
 
-/* Sections encadrées */
+/* Encadrer chaque section */
 .content section {
-  background-color: #ffffff; /* fond blanc pour contraste */
+  background-color: white;
   padding: 25px;
   margin-bottom: 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* ombre plus douce */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* léger relief */
 }
 
-/* Titres des sections */
+/* Titres plus élégants */
 .content h2 {
-  color: #00796b; /* vert foncé */
-  font-size: 24px;
+  color: var(--turquoise-fonce);
   margin-bottom: 15px;
+  font-size: 24px;
   padding-bottom: 5px;
-  border-bottom: none; /* plus de ligne sous le titre */
 }
 
-/* Texte et listes */
+/* Lisibilité du texte */
 .content p, .content ul {
   font-size: 17px;
   line-height: 1.7;
@@ -93,21 +91,6 @@
 
 .content ul li {
   margin-bottom: 8px;
-}
-
-/* Encadré contact (optionnel) */
-#contact-info {
-  background-color: #e0f2f1; /* vert très clair pour distinction */
-  padding: 20px 25px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-#contact-info h2 {
-  font-size: 26px;
-  color: #00796b;
-  margin-bottom: 10px;
 }
 
 }
