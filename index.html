@@ -55,34 +55,36 @@
     .sidebar nav a:hover,
     .sidebar nav a.active { color: var(--turquoise-clair); font-weight:bold; }
 
-    .content {
-  width: 75%; /* déjà changé */
-  background-color: #fafafa; /* un fond légèrement gris pour détacher du vert */
+    /* Fond général de la partie contenu : dégradé vert */
+.content {
+  width: 75%;
+  background: linear-gradient(135deg, #b2dfdb, #00796b); /* dégradé du clair au foncé */
   padding: 40px 50px;
   overflow-y: auto;
   height: 100vh;
-  border-left: 1px solid #ddd; /* séparation subtile avec la sidebar */
+  border-left: 1px solid #ddd;
+  color: #333; /* couleur du texte */
 }
 
-/* Encadrer chaque section */
+/* Sections encadrées */
 .content section {
-  background-color: white;
+  background-color: #ffffff; /* fond blanc pour contraste */
   padding: 25px;
   margin-bottom: 30px;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* léger relief */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* ombre plus douce */
 }
 
-/* Titres plus élégants */
+/* Titres des sections */
 .content h2 {
-  color: var(--turquoise-fonce);
-  margin-bottom: 15px;
+  color: #00796b; /* vert foncé */
   font-size: 24px;
-  
+  margin-bottom: 15px;
   padding-bottom: 5px;
+  border-bottom: none; /* plus de ligne sous le titre */
 }
 
-/* Lisibilité du texte */
+/* Texte et listes */
 .content p, .content ul {
   font-size: 17px;
   line-height: 1.7;
@@ -91,6 +93,23 @@
 
 .content ul li {
   margin-bottom: 8px;
+}
+
+/* Encadré contact (optionnel) */
+#contact-info {
+  background-color: #e0f2f1; /* vert très clair pour distinction */
+  padding: 20px 25px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#contact-info h2 {
+  font-size: 26px;
+  color: #00796b;
+  margin-bottom: 10px;
+}
+
 }
 
 
