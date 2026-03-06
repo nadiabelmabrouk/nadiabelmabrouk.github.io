@@ -1,120 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-<title>Nadia Belmabrouk</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nadia Belmabrouk</title>
+  <style>
+    :root {
+      --turquoise-clair: #B2DFDB;
+      --turquoise-fonce: #00796B;
+      --blanc: #ffffff;
+      --gris-texte: #333;
+      --fond-btn-hover: #80CBC4;
+    }
 
-<style>
+    * { margin:0; padding:0; box-sizing:border-box; }
 
-header {
-    background-color: #1f6f8b;   /* bleu mer */
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
+    body {
+      display:flex;
+      height:100vh;
+      font-family:'Segoe UI', sans-serif;
+      color: var(--gris-texte);
+      overflow:hidden;
+    }
+
+    .sidebar {
+      width:25%;
+      background-color: var(--turquoise-fonce);
+      color: var(--blanc);
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      padding:40px 30px;
+      position:sticky;
+      top:0;
+      height:100vh;
+      overflow-y:auto;
+      text-align:left;
+    }
+
+    .sidebar h1 { 
+  font-size: 32px; 
+  margin-bottom: 20px; 
+  font-weight: bold; 
+}
+
+    .sidebar p { 
+  margin-bottom: 10px; 
+}
+    .sidebar a { color: white; text-decoration: none; }
+    .sidebar a:hover { text-decoration: underline; }
+
+    .sidebar nav a {
+      display:block;
+      color:white;
+      text-decoration:none;
+      font-size:18px;
+      margin-bottom:20px;
+      cursor:pointer;
+      transition:color 0.3s;
+    }
+    .sidebar nav a:hover,
+    .sidebar nav a.active { color: var(--turquoise-clair); font-weight:bold; }
+.content { width:75%; background-color: var(--blanc); padding:40px 50px; overflow-y:auto; height:100vh; }
+.content ul li {
+  margin-bottom: 8px;
+}
+
 }
 
 
+    .lang-buttons { text-align:right; margin-bottom:20px; }
+    .lang-buttons button {
+      background-color: var(--turquoise-clair);
+      border:none;
+      color: var(--turquoise-fonce);
+      padding:8px 16px;
+      margin-left:10px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:bold;
+      transition:background 0.3s;
+    }
+    .lang-buttons button:hover { background-color: var(--fond-btn-hover); }
 
-nav{
-background:white;
-border-bottom:1px solid #ddd;
-text-align:center;
-padding:15px;
+    h2 { color: var(--turquoise-fonce); margin-top:40px; font-size:22px; }
+    p, ul { font-size:16px; margin-top:10px; line-height:1.5; }
+    ul { padding-left:20px; }
+
+    footer { margin-top:60px; font-size:0.85em; text-align:center; color:#777; }
+
+    a { color: var(--turquoise-fonce); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    @media (max-width:768px) {
+      body { flex-direction: column; }
+      .sidebar, .content { width:100%; height:auto; }
+      .content { padding:20px; height:auto; }
+    }
+    #contact-info {
+  background-color: #ffffff;
+  padding: 20px 25px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-nav a{
-margin:20px;
-text-decoration:none;
-color:#1565c0;
-font-weight:500;
+#contact-info h2 {
+  font-size: 26px;
+  color: var(--turquoise-fonce);
+  margin-bottom: 10px;
 }
 
-nav a:hover{
-color:#0d47a1;
+#contact-info p {
+  font-size: 16px;
+  margin-bottom: 8px;
 }
 
-.container{
-max-width:900px;
-margin:auto;
-padding:50px 20px;
+#contact-info a {
+  color: var(--turquoise-fonce);
+  text-decoration: none;
 }
 
-h2{
-color:#1a237e;
-margin-top:40px;
+#contact-info a:hover {
+  text-decoration: underline;
 }
 
-ul{
-padding-left:20px;
-}
-
-</style>
+  </style>
 </head>
-
 <body>
-
-<header>
-<h1>Nadia Belmabrouk</h1>
-<p>Applied Mathematics | Hawkes Processes</p>
-</header>
-
-<nav>
-<a href="#">Home</a>
-<a href="#">Research</a>
-<a href="#">Publications</a>
-<a href="#">Teaching</a>
-<a href="#">CV</a>
-<a href="#">Contact</a>
-</nav>
-
-<div class="container">
-
-<h2>About</h2>
-
-<p>
-I am a researcher in applied mathematics working on stochastic processes,
-interacting particle systems and Hawkes processes with long-range interactions.
-</p>
-
-<h2>Research Interests</h2>
-
-<ul>
-<li>Hawkes processes</li>
-<li>Long-range interactions</li>
-<li>Stochastic networks</li>
-<li>Mathematical neuroscience</li>
-</ul>
-
-<h2>Selected Publications</h2>
-
-<ul>
-<li>Long time asymptotics for multivariate Hawkes processes with long-range interactions</li>
-<li>Mean-field limits for interacting Hawkes networks</li>
-</ul>
-
-</div>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <!-- Sidebar -->
+  <div class="sidebar">
+   
     <!-- Menu EN -->
     
     <nav id="nav-en">
