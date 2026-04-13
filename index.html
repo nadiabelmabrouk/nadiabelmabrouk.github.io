@@ -72,14 +72,9 @@ nav a.active{
   padding:40px 20px;
 }
 
-/* SECTIONS */
-.section{
-  display:none;
-  margin-top:30px;
-}
-
-.section.active{
-  display:block;
+/* SECTIONS (TOUT RESTE VISIBLE) */
+section{
+  margin-top:60px;
 }
 
 /* TITRES */
@@ -105,7 +100,7 @@ a{
   color:var(--blue);
 }
 
-/* SMOOTH SCROLL */
+/* SCROLL */
 html{
   scroll-behavior:smooth;
 }
@@ -119,72 +114,70 @@ html{
   <h1>Nadia Belmabrouk</h1>
 
   <nav>
-    <a onclick="showSection('about')" class="active">About</a>
-    <a onclick="showSection('research')">Research</a>
-    <a onclick="showSection('pubs')">Publications</a>
-    <a onclick="showSection('talks')">Talks</a>
+    <a onclick="go('about')">About</a>
+    <a onclick="go('research')">Research</a>
+    <a onclick="go('pubs')">Publications</a>
+    <a onclick="go('talks')">Talks</a>
   </nav>
 </header>
 
 <!-- CONTENT -->
 <div class="content">
 
-  <!-- ================= EN ================= -->
-  <div id="en">
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
 
-    <h2 id="about">About Me</h2>
     <p>
       Since October 2023, I have been a postdoctoral researcher at CMAP (École Polytechnique), PEIPS team.
-      My research focuses on stochastic processes, interacting particle systems, and mathematical biology.
     </p>
 
     <p>
       Email: <a href="mailto:nadia.belmabrouk@outlook.fr">nadia.belmabrouk@outlook.fr</a><br>
       ORCID: <a href="https://orcid.org/0009-0009-5499-7874" target="_blank">0009-0009-5499-7874</a>
     </p>
+  </section>
 
-    <div id="research" class="section active">
-      <h2>Research Topics</h2>
-      <ul>
-        <li>Hawkes processes & interacting particle systems</li>
-        <li>Stochastic differential equations</li>
-        <li>Mathematical biology & tumour invasion models</li>
-        <li>Clinical data analysis</li>
-      </ul>
-    </div>
+  <!-- RESEARCH -->
+  <section id="research">
+    <h2>Research Topics</h2>
+    <ul>
+      <li>Hawkes processes & interacting particle systems</li>
+      <li>Stochastic differential equations</li>
+      <li>Mathematical biology & tumour invasion models</li>
+      <li>Clinical data analysis</li>
+    </ul>
+  </section>
 
-    <div id="pubs" class="section">
-      <h2>Publications</h2>
-      <ul>
-        <li>Filomat (2021)</li>
-        <li>Statistics & Probability Letters (2022)</li>
-        <li>International Journal of Biomathematics (2023)</li>
-      </ul>
-    </div>
+  <!-- PUBLICATIONS -->
+  <section id="pubs">
+    <h2>Publications</h2>
+    <ul>
+      <li>Filomat (2021)</li>
+      <li>Statistics & Probability Letters (2022)</li>
+      <li>International Journal of Biomathematics (2023)</li>
+    </ul>
+  </section>
 
-    <div id="talks" class="section">
-      <h2>Talks</h2>
-      <ul>
-        <li>CMAP Seminar (2025)</li>
-        <li>Société Mathématique de Tunisie (2024)</li>
-        <li>Institut Henri Poincaré (2022)</li>
-      </ul>
-    </div>
-
-  </div>
+  <!-- TALKS -->
+  <section id="talks">
+    <h2>Talks</h2>
+    <ul>
+      <li>CMAP Seminar (2025)</li>
+      <li>Société Mathématique de Tunisie (2024)</li>
+      <li>Institut Henri Poincaré (2022)</li>
+    </ul>
+  </section>
 
 </div>
 
 <!-- SCRIPT -->
 <script>
-function showSection(id){
-  document.querySelectorAll('.section').forEach(sec=>{
-    sec.classList.remove('active');
-  });
+function go(id){
+  const el = document.getElementById(id);
 
-  const target = document.getElementById(id);
-  if(target){
-    target.classList.add('active');
+  if(el){
+    el.scrollIntoView({behavior:"smooth"});
   }
 
   // menu highlight
