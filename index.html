@@ -24,7 +24,7 @@
 
     .sidebar {
       width:25%;
-      background-color: var(--turquoise-fonce);
+      background-color: var(--bleu-clair);
       color: var(--blanc);
       display:flex;
       flex-direction:column;
@@ -59,13 +59,17 @@
       transition:color 0.3s;
     }
     .sidebar nav a:hover,
-    .sidebar nav a.active { color: var(--turquoise-clair); font-weight:bold; }
+    .sidebar nav a.active { color: white;
+  opacity: 0.8; }
+    .sidebar {
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
 .content { width:75%; background-color: var(--blanc); padding:40px 50px; overflow-y:auto; height:100vh; }
 .content ul li {
   margin-bottom: 8px;
 }
 
-}
+
 
 
     .lang-buttons { text-align:right; margin-bottom:20px; }
