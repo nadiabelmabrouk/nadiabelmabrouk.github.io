@@ -6,120 +6,72 @@
 <title>Nadia Belmabrouk</title>
 
 <style>
-:root{
-  --blue:#87CEEB;
-  --text:#1d1d1f;
-  --muted:#6e6e73;
-  --bg:#ffffff;
+nav a{
+  padding:6px 10px;
+  border-radius:6px;
+  transition:0.2s;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+/* hover */
+nav a:hover{
+  background:rgba(255,255,255,0.25);
+  opacity:1;
 }
 
-body{
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
-
-/* HEADER */
-header{
-  background:var(--blue);
-  color:white;
-  padding:15px 30px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-header h1{
-  font-size:18px;
+/* lien actif */
+nav a.active{
+  background:white;
+  color:var(--blue);
   font-weight:600;
 }
 
-nav a{
-  margin-left:15px;
-  color:white;
-  text-decoration:none;
-  font-size:14px;
-  cursor:pointer;
-}
-
-nav a:hover{
-  opacity:0.8;
-}
-
-/* CONTENT */
-.content{
-  max-width:900px;
-  margin:auto;
-  padding:40px 20px;
-}
-
-/* SECTIONS */
-.section{
-  display:none;
-  margin-top:30px;
-}
-
-.section.active{
-  display:block;
-}
-
-/* TITRES */
-h2{
-  margin-bottom:15px;
-  border-left:4px solid var(--blue);
-  padding-left:10px;
-}
-
-/* TEXTES */
-p, li{
-  font-size:16px;
-  line-height:1.7;
-  color:var(--muted);
-}
-
-ul{
-  padding-left:20px;
-}
-
-/* LANG BUTTONS */
-.lang-buttons{
-  text-align:right;
-  margin-bottom:20px;
-}
-
-.lang-buttons button{
-  background:white;
-  border:none;
-  padding:6px 12px;
-  border-radius:6px;
-  cursor:pointer;
-  margin-left:8px;
-  font-size:13px;
-}
-
-.lang-buttons button:hover{
-  opacity:0.8;
+/* scroll fluide */
+html{
+  scroll-behavior:smooth;
 }
 </style>
 </head>
 
+<script>
+const links = document.querySelectorAll("nav a");
+const sections = document.querySelectorAll("h2");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const top = section.offsetTop - 120;
+    if (pageYOffset >= top) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  links.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("active");
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+  
+
 <body>
 
-<!-- HEADER -->
 <header>
   <h1>Nadia Belmabrouk</h1>
 
   <nav>
-    <a onclick="showSection('about')">About</a>
-    <a onclick="showSection('research')">Research</a>
-    <a onclick="showSection('pubs')">Publications</a>
-    <a onclick="showSection('talks')">Talks</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#research" class="nav-link">Research</a>
+    <a href="#pubs" class="nav-link">Publications</a>
+    <a href="#talks" class="nav-link">Talks</a>
   </nav>
 </header>
 
