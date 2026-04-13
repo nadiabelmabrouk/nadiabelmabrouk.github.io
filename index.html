@@ -6,290 +6,196 @@
 <title>Nadia Belmabrouk</title>
 
 <style>
+:root{
+  --blue:#87CEEB;
+  --text:#1d1d1f;
+  --muted:#6e6e73;
+  --bg:#ffffff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* HEADER */
+header{
+  background:var(--blue);
+  color:white;
+  padding:15px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+header h1{
+  font-size:18px;
+  font-weight:600;
+}
+
+/* NAV */
 nav a{
+  margin-left:15px;
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+  cursor:pointer;
   padding:6px 10px;
   border-radius:6px;
   transition:0.2s;
 }
 
-/* hover */
 nav a:hover{
   background:rgba(255,255,255,0.25);
-  opacity:1;
 }
 
-/* lien actif */
 nav a.active{
   background:white;
   color:var(--blue);
   font-weight:600;
 }
 
-/* scroll fluide */
+/* CONTENT */
+.content{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+/* SECTIONS */
+.section{
+  display:none;
+  margin-top:30px;
+}
+
+.section.active{
+  display:block;
+}
+
+/* TITRES */
+h2{
+  margin-bottom:15px;
+  border-left:4px solid var(--blue);
+  padding-left:10px;
+}
+
+/* TEXTES */
+p, li{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--muted);
+}
+
+ul{
+  padding-left:20px;
+}
+
+/* LINKS */
+a{
+  color:var(--blue);
+}
+
+/* SMOOTH SCROLL */
 html{
   scroll-behavior:smooth;
 }
 </style>
 </head>
 
-<script>
-const links = document.querySelectorAll("nav a");
-const sections = document.querySelectorAll("h2");
-
-window.addEventListener("scroll", () => {
-  let current = "";
-
-  sections.forEach(section => {
-    const top = section.offsetTop - 120;
-    if (pageYOffset >= top) {
-      current = section.getAttribute("id");
-    }
-  });
-
-  links.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("active");
-    }
-  });
-});
-</script>
-
-
-
-
-
-
-  
-
 <body>
 
+<!-- HEADER -->
 <header>
   <h1>Nadia Belmabrouk</h1>
 
   <nav>
-    <a href="#about" class="nav-link">About</a>
-    <a href="#research" class="nav-link">Research</a>
-    <a href="#pubs" class="nav-link">Publications</a>
-    <a href="#talks" class="nav-link">Talks</a>
+    <a onclick="showSection('about')" class="active">About</a>
+    <a onclick="showSection('research')">Research</a>
+    <a onclick="showSection('pubs')">Publications</a>
+    <a onclick="showSection('talks')">Talks</a>
   </nav>
 </header>
 
 <!-- CONTENT -->
 <div class="content">
 
-  <!-- LANG -->
-  <div class="lang-buttons">
-    <button onclick="setLang('fr')">Français</button>
-    <button onclick="setLang('en')">English</button>
-  </div>
-
   <!-- ================= EN ================= -->
   <div id="en">
 
-    <h2 style="font-size:40px; border:none; padding:0;">
-      Nadia Belmabrouk
-    </h2>
+    <h2 id="about">About Me</h2>
+    <p>
+      Since October 2023, I have been a postdoctoral researcher at CMAP (École Polytechnique), PEIPS team.
+      My research focuses on stochastic processes, interacting particle systems, and mathematical biology.
+    </p>
 
-    <p>Email: <a href="mailto:nadia.belmabrouk@outlook.fr">nadia.belmabrouk@outlook.fr</a></p>
-    <p>ORCID: <a href="https://orcid.org/0009-0009-5499-7874" target="_blank">0009-0009-5499-7874</a></p>
+    <p>
+      Email: <a href="mailto:nadia.belmabrouk@outlook.fr">nadia.belmabrouk@outlook.fr</a><br>
+      ORCID: <a href="https://orcid.org/0009-0009-5499-7874" target="_blank">0009-0009-5499-7874</a>
+    </p>
 
-
-      </a>
-    </p>   
-      <h2 id="about">About Me</h2>
-      <p>Since October 2023, I have been a postdoctoral researcher at CMAP (École Polytechnique), in the PEIPS team. My research is partially supported by an INSERM/INCa project in collaboration with Saint-Louis Hospital, as well as by the ERC SINGER obtained by Sylvie Méléard. The postdoctoral project focuses on understanding cancer cell invasion through two main aspects: a theoretical part based on the multiscale analysis of a birth-and-death process, and an applied part centered on the analysis of clinical data.</p>
-      <br><br>  <p>I obtained a joint PhD between the University of Paris-Est Créteil (LAMA) and the University of Sfax, Tunisia, under the supervision of Arnaud Le Ny and Mondher Damak. I defended my thesis in December 2023. My research focused on stochastic differential equations and Hawkes processes applied to long-range neural networks.</p>
-      <h2 id="research">Research Topics</h2>
+    <div id="research" class="section active">
+      <h2>Research Topics</h2>
       <ul>
-        <li><strong> Interacting particle systems: </strong> Hawkes processes, birth-death processes, invasion models, Langevin equations</li> 
-        <li><strong> Stochastic analysis and large-scale limits:</strong> pseudo-periodic solutions, stochastic differential equations with jumps, long-time behavior of long-range interactions, population dynamics limits</li> 
-        <li><strong> Biology and clinical data analysis:</strong> dynamic Bayesian networks</li>
+        <li>Hawkes processes & interacting particle systems</li>
+        <li>Stochastic differential equations</li>
+        <li>Mathematical biology & tumour invasion models</li>
+        <li>Clinical data analysis</li>
       </ul>
- 
-      <h2 id="publications_en">Publications</h2>
-      <ul>
-        <li>
-    <span class="talk-title">[1]</span>
-    <span class="talk-subtitle">"Measure pseudo almost periodic solution for a class of nonlinear delayed stochastic evolution equations driven by Brownian motion."</span><br>
-    Nadia Belmabrouk, Mondher Damak, Mohsen Miraoui. <em>Filomat</em>, 2021.
-  </li>
-  <li>
-    <span class="talk-title">[2]</span>
-    <span class="talk-subtitle">"Dirichlet eigenvalue problems of irreversible Langevin diffusion."</span><br>
-    Nadia Belmabrouk, Mondher Damak, Najib Yaakoubi. <em>Statistics & Probability Letters</em>, 2022.
-  </li>
-  <li>
-    <span class="talk-title">[3]</span>
-    <span class="talk-subtitle">"Stochastic Nicholson’s blowflies model with delays."</span><br>
-    Nadia Belmabrouk, Mondher Damak, Mohsen Miraoui. <em>International Journal of Biomathematics</em>, 2023.
-  </li>
-</ul>
-
-<h2 id="travaux">Work in Progress</h2>
-<ul>
-  <li>
-    <span class="talk-title">[4]</span>
-    <span class="talk-subtitle">"Asymptotics of multivariate Hawkes processes with long-range interactions".</span><br>
-    Nadia Belmabrouk, Arnaud Le Ny.
-  </li>
-  <li>
-    <span class="talk-title">[5]</span>
-    <span class="talk-subtitle">"Dynamics of tumour cell invasion in a quasi-critical regime".</span><br>
-    Vincent Bansaye, Nadia Belmabrouk, Xavier Erny, Simon Girel.
-  </li>
-  <li>
-    <span class="talk-title">[6]</span>
-    <span class="talk-subtitle">"A Dynamic Bayesian Network for Hematologic Mutations and Treatment Response".</span><br>
-    Nadia Belmabrouk, Ana Fernández Baranda, Nabih Maslah, Sylvie Méléard.
-  </li>
-  </ul>
-<h2 id="talks_en">Talks</h2>
-<ul>
-  <li>17/06/2025: Research School of the MMB Chair, Aussois – "Dynamics of Tumour Cell Invasion
-in a Quasi-Critical Regime"</li>
-  <li>10/04/2025: MERGE Team Seminar (CMAP École Polytechnique) – "Dynamics of Tumour Cell Invasion
-in a Quasi-Critical Regime"</li>
-  <li>25-28/04/2024: Tunisian Mathematical Society Conference, Monastir – "Asymptotics of multivariate Hawkes processes with long-range interactions"</li>
-  <li>17/11/2023: SAMM Seminar, University Paris 1 – "Asymptotics of multivariate Hawkes processes with long-range interactions"</li>
-  <li>14/03/2023: Doctoral Seminar – "Asymptotics of multivariate Hawkes processes with long-range interactions"</li>
-  <li>02/11/2019: Tunisian Mathematical Society Conference – "Stochastic Nicholson’s blowflies model with delays"</li>
-  <li>04-06/08/2023: Stochastic Models in Life Science, Eurandom – "Neural Multivariate Hawkes Process with Long-Range Interactions"</li>
-  <li>21-25/06/2022: ALEA Days, CIRM, Luminy – "Hawkes processes on a long-range network"</li>
-  <li>05/06/2022: Hawkes Process Days, Institut Henri Poincaré – "Asymptotics of multivariate Hawkes processes with long-range interactions"</li>
-  <li>28/06-01/07/2021: International Conference on Mathematical Neuroscience – "Asymptotics of multivariate Hawkes processes with long-range interactions" (online)</li>
-</ul>
-
-<h2 id="talks_en">Poster</h2>
-<ul>
-  <li>26-28/06/2024: Journées Math Bio Santé, Nantes</li>
-</ul>
- <footer>© 2025 Nadia Belmabrouk — <a href="mailto:nadia.belmabrouk@outlook.fr">Contact me</a></footer>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    <!-- Contenu FR -->
-    <div id="fr" style="display:none;">
-       <h2 style="font-size: 48px; font-weight: bold; margin-bottom: 20px;">Nadia Belmabrouk</h2>
-
-  <p>Email : <a href="mailto:nadia.belmabrouk@outlook.fr">nadia.belmabrouk@outlook.fr</a></p>
-  <p>ORCID : <a href="https://orcid.org/0009-0009-5499-7874" target="_blank">0009-0009-5499-7874</a></p>
-      <h2 id="apropos">À propos de moi</h2>
-      <p>Depuis octobre 2023, je suis post-doctorante au CMAP (École Polytechnique), au sein de l’équipe PEIPS. Mes recherches sont financées en partie par un projet INSERM/INCa, réalisé en collaboration avec l’hôpital Saint-Louis, ainsi que par l'ERC SINGER de Sylvie Méléard. Le projet de post-doctorat porte sur la compréhension de l’invasion des cellules cancéreuses, à travers deux volets : un théorique, basé sur l’analyse multi-échelle d’un processus de naissance et mort, et un autre pratique, centré sur l’analyse de données cliniques.</p>
-      <br><br> <p>J’ai effectué une thèse en cotutelle (soutenue en décembre 2023) entre l’Université Paris-Est Créteil (LAMA) et l’Université de Sfax en Tunisie, sous la direction d’Arnaud Le Ny et Mondher Damak. Elle portait sur l’étude des équations différentielles stochastiques et des processus de Hawkes appliqués aux réseaux neuronaux à longue portée.</p>
-      <h2 id="themes">Thèmes de recherche</h2>
+    <div id="pubs" class="section">
+      <h2>Publications</h2>
       <ul>
-        <li><strong>Systèmes de particules en interaction :</strong> Processus de Hawkes, processus de naissances-morts, modèles d’invasion, équations de Langevin</li>
-        <li><strong>Analyse stochastique et limites à grande échelle :</strong> solutions pseudo-périodiques, équations différentielles stochastiques avec sauts, comportement en temps long des interactions à longue portée, limites de la dynamique des populations</li>
-        <li><strong>Biologie et analyse de données cliniques :</strong> Réseaux bayésiens dynamiques</li>
+        <li>Filomat (2021)</li>
+        <li>Statistics & Probability Letters (2022)</li>
+        <li>International Journal of Biomathematics (2023)</li>
       </ul>
-
-      <h2 id="publications">Publications</h2>
-      <ul>
-        <li>
-    <span class="talk-title">[1]</span>
-    <span class="talk-subtitle">"Measure pseudo almost periodic solution for a class of nonlinear delayed stochastic evolution equations driven by Brownian motion."</span><br>
-    Nadia Belmabrouk, Mondher Damak, Mohsen Miraoui. <em>Filomat</em>, 2021.
-  </li>
-  <li>
-    <span class="talk-title">[2]</span>
-    <span class="talk-subtitle">"Dirichlet eigenvalue problems of irreversible Langevin diffusion."</span><br>
-    Nadia Belmabrouk, Mondher Damak, Najib Yaakoubi. <em>Statistics & Probability Letters</em>, 2022.
-  </li>
-  <li>
-    <span class="talk-title">[3]</span>
-    <span class="talk-subtitle">"Stochastic Nicholson’s blowflies model with delays."</span><br>
-    Nadia Belmabrouk, Mondher Damak, Mohsen Miraoui. <em>International Journal of Biomathematics</em>, 2023.
-  </li>
-      </ul>
-
-      <h2 id="travaux_fr">Travaux en cours</h2>
-      <ul>
-         <li>
-    <span class="talk-title">[4]</span>
-    <span class="talk-subtitle">"Asymptotics of multivariate Hawkes processes with long-range interactions".</span><br>
-    Nadia Belmabrouk, Arnaud Le Ny.
-  </li>
-  <li>
-    <span class="talk-title">[5]</span>
-    <span class="talk-subtitle">"Dynamics of tumour cell invasion in a quasi-critical regime".</span><br>
-    Vincent Bansaye, Nadia Belmabrouk, Xavier Erny, Simon Girel.
-  </li>
-  <li>
-    <span class="talk-title">[6]</span>
-    <span class="talk-subtitle">"A Dynamic Bayesian Network for Hematologic Mutations and Treatment Response".</span><br>
-    Nadia Belmabrouk, Ana Fernández Baranda, Nabih Maslah, Sylvie Méléard.
-  </li>
-      </ul>
-
-<h2 id="talks_fr"> Présentations</h2>
-<ul>
-  <li>17/06/2025 : École de recherche de la Chaire MMB, Aussois – "Dynamics of Tumour Cell Invasion
-in a Quasi-Critical Regime"</li>
-  <li>10/04/2025 : Séminaire de l’équipe MERGE (CMAP École Polytechnique) – "Dynamics of Tumour Cell Invasion
-in a Quasi-Critical Regime"</li>
-  <li>25-28/04/2024 : Colloque de la Société Mathématique de Tunisie, Monastir – "Asymptotics of multivariate Hawkes processes with long-range interactions"</li>
-  <li>17/11/2023 : Séminaire SAMM, Université Paris 1 – "Asymptotics of multivariate Hawkes processes with long-range interactions"</li>
-  <li>14/03/2023 : Séminaire des doctorants – "Asymptotics of multivariate Hawkes processes with long-range interactions"</li>
-  <li>02/11/2019 : Colloque de la Société Mathématique de Tunisie – "Stochastic Nicholson’s blowflies model with delays"</li>
-
-
-  <li>04-06/08/2023 : Stochastic Models in Life Science, Eurandom – "Neural Multivariate Hawkes Process with Long-Range Interactions"</li>
-  <li>21-25/06/2022 : Journées ALEA, CIRM, Luminy – "Processus de Hawkes sur un réseau à longues portées"</li>
-  <li>05/06/2022 : Journées Processus de Hawkes, Institut Henri Poincaré – "Asymptotics of multivariate Hawkes processes with long-range interactions"</li>
-  <li>28/06-01/07/2021 : International Conference on Mathematical Neuroscience – "Multivariate Hawkes Process with Long-Range Dependencies" (en ligne)</li>
-</ul>
-
-<h2 id="poster_fr"> Présentations</h2>
-<ul>
-  <li>26-28/06/2024 : Journées Math Bio Santé, Nantes</li>
-</ul>
-
-
-
-
-      
-
-      <footer>© 2025 Nadia Belmabrouk — <a href="mailto:nadia.belmabrouk@outlook.fr">Me contacter</a></footer>
     </div>
+
+    <div id="talks" class="section">
+      <h2>Talks</h2>
+      <ul>
+        <li>CMAP Seminar (2025)</li>
+        <li>Société Mathématique de Tunisie (2024)</li>
+        <li>Institut Henri Poincaré (2022)</li>
+      </ul>
+    </div>
+
   </div>
 
-  <script>
-    function setLang(lang) {
-      document.getElementById('fr').style.display = (lang==='fr') ? 'block':'none';
-      document.getElementById('en').style.display = (lang==='en') ? 'block':'none';
-      document.getElementById('nav-fr').style.display = (lang==='fr') ? 'block':'none';
-      document.getElementById('nav-en').style.display = (lang==='en') ? 'block':'none';
+</div>
+
+<!-- SCRIPT -->
+<script>
+function showSection(id){
+  document.querySelectorAll('.section').forEach(sec=>{
+    sec.classList.remove('active');
+  });
+
+  const target = document.getElementById(id);
+  if(target){
+    target.classList.add('active');
+  }
+
+  // menu highlight
+  document.querySelectorAll("nav a").forEach(a=>{
+    a.classList.remove("active");
+    if(a.getAttribute("onclick").includes(id)){
+      a.classList.add("active");
     }
+  });
+}
+</script>
 
-    window.onload = function(){ setLang('en'); }
-
-    document.querySelectorAll('.sidebar nav a').forEach(link=>{
-      link.addEventListener('click', e=>{
-        e.preventDefault();
-        document.querySelectorAll('.sidebar nav a').forEach(a=>a.classList.remove('active'));
-        link.classList.add('active');
-        const target = document.querySelector(link.getAttribute('href'));
-        if(target) target.scrollIntoView({behavior:'smooth'});
-      });
-    });
-  </script>
 </body>
 </html>
